@@ -24,7 +24,7 @@
       </nuxt-link>
       <button
         class="w3-bar-item w3-button w3-large w3-round-xxlarge"
-        onclick="$('#contactModal').slideDown()"
+        @click="contactShow = !contactShow"
       >
         <b>
           <i class="fa fa-send"></i> Contact
@@ -44,74 +44,78 @@
         </b>
       </nuxt-link>
     </div>
-    <div
-      id="sidebar_small"
-      class="w3-sidebar w3-text-white w3-bar-block w3-card-4 w3-animate-left w3-hide-large"
-      style="display:none"
+    <transition-group
+      name="small-nav"
+      enter-active-class="animated slideInLeft"
+      leave-active-class="animated slideOutLeft"
     >
-      <button class="w3-button w3-hide-large w3-large" onclick="$('#sidebar_small').slideToggle()">
-        <i class="fa fa-close"></i>
-      </button>
-      <form
-        action="{% url 'personal:index' %}"
-        method="get"
-        class="w3-bar-item w3-container w3-border-purple w3-bottombar"
+      <div
+        v-show="navShow"
+        id="sidebar_small"
+        class="w3-sidebar w3-text-white w3-bar-block w3-card-4 w3-hide-large"
+        key="1"
       >
-        <input
-          name="q"
-          type="text"
-          class="w3-input w3-hover-light-gray w3-light-white w3-col s10"
-          placeholder="Search project..."
-          value
-          style="border:0px; border-radius:32px 0px 0px 32px;"
-          required="required"
-        >
-        <button
-          type="submit"
-          class="w3-button w3-purple w3-hover-purple w3-col s2"
-          style="border-radius:0px 32px 32px 0px;"
-        >
-          <i class="fa fa-search"></i>
+        <button class="w3-button w3-hide-large w3-large" @click="navShow = !navShow">
+          <i class="fa fa-close"></i>
         </button>
-      </form>
-      <nuxt-link to="/" class="w3-bar-item w3-button w3-large w3-round-xxlarge">
-        <b>
-          <i class="fa fa-home"></i> Home
-        </b>
-      </nuxt-link>
-      <nuxt-link to="/blog" class="w3-bar-item w3-button w3-large w3-round-xxlarge">
-        <b>
-          <i class="fa fa-book"></i> Blog
-        </b>
-      </nuxt-link>
-      <button
-        class="w3-bar-item w3-button w3-large w3-round-xxlarge"
-        onclick="$('#contactModal').slideDown()"
-      >
-        <b>
-          <i class="fa fa-send"></i> Contact
-        </b>
-      </button>
-      <nuxt-link to="/admin" class="w3-bar-item w3-button w3-large w3-round-xxlarge">
-        <b>
-          <i class="fa fa-gear"></i> Manage
-        </b>
-      </nuxt-link>
-      <nuxt-link
-        :to="{name: 'portfolio-about'}"
-        class="w3-bar-item w3-button w3-large w3-round-xxlarge"
-      >
-        <b>
-          <i class="fa fa-info-circle"></i> About Me
-        </b>
-      </nuxt-link>
-    </div>
+        <form
+          action="{% url 'personal:index' %}"
+          method="get"
+          class="w3-bar-item w3-container w3-border-purple w3-bottombar"
+        >
+          <input
+            name="q"
+            type="text"
+            class="w3-input w3-hover-light-gray w3-light-white w3-col s10"
+            placeholder="Search project..."
+            value
+            style="border:0px; border-radius:32px 0px 0px 32px;"
+            required="required"
+          >
+          <button
+            type="submit"
+            class="w3-button w3-purple w3-hover-purple w3-col s2"
+            style="border-radius:0px 32px 32px 0px;"
+          >
+            <i class="fa fa-search"></i>
+          </button>
+        </form>
+        <nuxt-link to="/" class="w3-bar-item w3-button w3-large w3-round-xxlarge">
+          <b>
+            <i class="fa fa-home"></i> Home
+          </b>
+        </nuxt-link>
+        <nuxt-link to="/blog" class="w3-bar-item w3-button w3-large w3-round-xxlarge">
+          <b>
+            <i class="fa fa-book"></i> Blog
+          </b>
+        </nuxt-link>
+        <button
+          class="w3-bar-item w3-button w3-large w3-round-xxlarge"
+          @click="contactShow = !contactShow"
+        >
+          <b>
+            <i class="fa fa-send"></i> Contact
+          </b>
+        </button>
+        <nuxt-link to="/admin" class="w3-bar-item w3-button w3-large w3-round-xxlarge">
+          <b>
+            <i class="fa fa-gear"></i> Manage
+          </b>
+        </nuxt-link>
+        <nuxt-link
+          :to="{name: 'portfolio-about'}"
+          class="w3-bar-item w3-button w3-large w3-round-xxlarge"
+        >
+          <b>
+            <i class="fa fa-info-circle"></i> About Me
+          </b>
+        </nuxt-link>
+      </div>
+    </transition-group>
 
     <header class="w3-container w3-text-white w3-border-purple w3-bottombar" style="padding:0px">
-      <button
-        class="w3-button w3-hide-large w3-large w3-hover-purple"
-        onclick="$('#sidebar_small').slideToggle()"
-      >
+      <button class="w3-button w3-hide-large w3-large w3-hover-purple" @click="navShow = !navShow">
         <i class="fa fa-bars"></i>
       </button>
       <form
@@ -160,6 +164,14 @@
       <nuxt/>
     </div>
 
+    <transition-group
+      name="contact"
+      enter-active-class="animated zoomInUp"
+      leave-active-class="animated zoomOutUp"
+    >
+      <Contact v-show="contactShow" key="contact" @hide-contact-modal="contactShow = !contactShow"/>
+    </transition-group>
+
     <Footer/>
   </div>
 </template>
@@ -167,11 +179,16 @@
 <script>
 import Footer from '~/components/Footer.vue'
 import Categories from '~/components/Categories.vue'
+import Contact from '~/components/Contact.vue'
 
 export default {
   components: {
     Footer,
-    Categories
+    Categories,
+    Contact
+  },
+  data() {
+    return { navShow: false, contactShow: true }
   }
 }
 </script>
@@ -225,7 +242,7 @@ footer {
 }
 @media (max-width: 600px) {
   #sidebar_small {
-    width: 85%;
+    width: 85% !important;
   }
 }
 @media (max-width: 425px) {
