@@ -26,7 +26,7 @@
             <span class="w3-hide-small w3-hide-medium">Contact</span>
           </button>
           <nuxt-link
-            to="/about"
+            :to="{name: 'portfolio-about'}"
             class="light-gray-opacity w3-bar-item w3-round-xxlarge w3-button w3-right"
           >
             <i class="fa fa-info-circle"></i>

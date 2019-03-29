@@ -30,7 +30,10 @@
           <i class="fa fa-send"></i> Contact
         </b>
       </button>
-      <nuxt-link to="/about" class="w3-bar-item w3-button w3-large w3-round-xxlarge">
+      <nuxt-link
+        :to="{name: 'portfolio-about'}"
+        class="w3-bar-item w3-button w3-large w3-round-xxlarge"
+      >
         <b>
           <i class="fa fa-info-circle"></i> About Me
         </b>
@@ -94,7 +97,10 @@
           <i class="fa fa-gear"></i> Manage
         </b>
       </nuxt-link>
-      <nuxt-link to="/about" class="w3-bar-item w3-button w3-large w3-round-xxlarge">
+      <nuxt-link
+        :to="{name: 'portfolio-about'}"
+        class="w3-bar-item w3-button w3-large w3-round-xxlarge"
+      >
         <b>
           <i class="fa fa-info-circle"></i> About Me
         </b>
@@ -139,7 +145,7 @@
       <Categories/>
 
       <div class="w3-padding w3-display-topright w3-hide-large">
-        <nuxt-link to="/about">
+        <nuxt-link :to="{name: 'portfolio-about'}">
           <img
             src="~/assets/images/me.jpg"
             style="min-height:80px!important; max-height:80px!important"

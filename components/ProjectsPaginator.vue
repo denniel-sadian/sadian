@@ -33,7 +33,6 @@
 
 <script>
 export default {
-  name: 'ProjectsList',
   props: {
     actualNumber: {
       type: Number
@@ -46,25 +45,22 @@ export default {
   data() {
     return { q: '' }
   },
-  watch: {
-    $route: function(r) {
-      if (r.query.q) {
-        this.q = r.query.q
-      }
-    }
-  },
   computed: {
     max() {
       return Math.floor(this.actualNumber / 12)
     },
     previousLink() {
       var link = { query: { page: this.pageNumber - 1 } }
-      if (this.q != 0) link.query.q = this.q
+      if (this.$route.query.q) link.query.q = this.$route.query.q
+      if (this.$route.query.category)
+        link.query.category = this.$route.query.category
       return link
     },
     nextLink() {
       var link = { query: { page: this.pageNumber + 1 } }
-      if (this.q != 0) link.query.q = this.q
+      if (this.$route.query.q) link.query.q = this.$route.query.q
+      if (this.$route.query.category)
+        link.query.category = this.$route.query.category
       return link
     }
   }

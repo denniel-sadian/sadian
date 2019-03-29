@@ -16,8 +16,8 @@
           class="container w3-hover-shadow w3-border w3-border-purple w3-round-xlarge"
           @click="
             $router.push({
-              name: 'detail',
-              params: { id: p.id, category: p.category }
+              name: 'portfolio-detail',
+              query: { id: p.id, category: p.category }
             })"
         >
           <img :src="p.image" :alt="p.name" class="w3-image proj-image">
