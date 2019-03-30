@@ -6,8 +6,17 @@
     >
       <div class="w3-bar-item w3-center w3-border-purple w3-bottombar">
         <img
+          key="large_face"
+          v-if="$route.name != 'portfolio-about'"
           src="~/assets/images/me.jpg"
-          class="face w3-image w3-circle w3-margin-top w3-card-4"
+          class="face animated fadeIn w3-image w3-circle w3-margin-top w3-card-4"
+          width="150"
+        >
+        <img
+          key="large_icon"
+          v-else
+          src="~/assets/images/icon.png"
+          class="face animated fadeIn w3-image w3-circle w3-margin-top w3-card-4"
           width="150"
         >
         <h3>Denniel Luis Saway Sadian</h3>
@@ -97,17 +106,17 @@
             <i class="fa fa-send"></i> Contact
           </b>
         </button>
-        <nuxt-link to="/admin" class="w3-bar-item w3-button w3-large w3-round-xxlarge">
-          <b>
-            <i class="fa fa-gear"></i> Manage
-          </b>
-        </nuxt-link>
-        <nuxt-link
-          :to="{name: 'portfolio-about'}"
+        <button
+          @click="navShow = !navShow; $router.push({name: 'portfolio-about'})"
           class="w3-bar-item w3-button w3-large w3-round-xxlarge"
         >
           <b>
             <i class="fa fa-info-circle"></i> About Me
+          </b>
+        </button>
+        <nuxt-link to="/admin" class="w3-bar-item w3-button w3-large w3-round-xxlarge">
+          <b>
+            <i class="fa fa-gear"></i> Manage
           </b>
         </nuxt-link>
       </div>
@@ -149,10 +158,20 @@
       <div class="w3-padding w3-display-topright w3-hide-large">
         <nuxt-link :to="{name: 'portfolio-about'}">
           <img
+            key="small_face"
+            v-if="$route.name != 'portfolio-about'"
             src="~/assets/images/me.jpg"
             style="min-height:80px!important; max-height:80px!important"
             width="80"
-            class="face w3-image w3-circle w3-card"
+            class="animated bounceIn face w3-image w3-circle w3-card"
+          >
+          <img
+            key="small_icon"
+            v-else
+            src="~/assets/images/icon.png"
+            style="min-height:80px!important; max-height:80px!important"
+            width="80"
+            class="face animated bounceIn w3-image w3-circle w3-card"
           >
         </nuxt-link>
       </div>

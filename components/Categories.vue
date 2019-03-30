@@ -19,9 +19,9 @@
         <div class="w3-large w3-dropdown-hover w3-margin-bottom w3-hide-medium w3-hide-large">
           <button class="w3-button w3-purple w3-round-xxlarge">
             <i class="fa fa-caret-down"></i>
-            <span v-if="$route.name != 'portfolio'">Categories</span>
+            <span v-if="$route.name != 'portfolio'">Projects</span>
             <span v-else-if="!$route.query.category && $route.name == 'portfolio'">All</span>
-            <span v-else>{{ category }}</span>
+            <span v-else>{{ category }}s</span>
           </button>
           <div
             class="w3-dropdown-content w3-center w3-bar-block w3-border w3-card-4 w3-round-xxlarge"
@@ -32,7 +32,7 @@
               v-show="cat != category"
               :to="{'name': 'portfolio', query: {'category': cat}}"
               class="w3-bar-item w3-button w3-light-gray w3-round-xxlarge"
-            >{{ cat }}</nuxt-link>
+            >{{ cat }}s</nuxt-link>
             <nuxt-link
               to="/portfolio"
               v-if="category"
