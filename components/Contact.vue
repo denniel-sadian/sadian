@@ -1,6 +1,6 @@
 <template>
   <div id="contactModal" class="w3-modal">
-    <div class="w3-modal-content" style="background-image:url(~/assests/images/header.png)">
+    <div class="w3-modal-content">
       <div class="w3-container w3-padding w3-text-white">
         <span
           class="closebtn w3-hover-text-red"
@@ -16,25 +16,23 @@
       <div class="w3-container">
         <form
           class="w3-container w3-padding w3-margin-bottom w3-white w3-center"
-          style="background-image:url(~/assets/images/article)"
-          onsubmit="return postComment()"
+          @submit.prevent="contact"
         >
-          {% csrf_token %}
           <input
             class="w3-input w3-margin-bottom w3-margin-top w3-border-gray w3-hover-border-purple"
             placeholder="Full Name"
-            id="name"
+            v-model="name"
             required
           >
           <input
             class="w3-input w3-margin-bottom w3-border-gray w3-hover-border-purple"
             placeholder="Email"
-            id="email"
+            v-model="email"
             required
           >
           <textarea
             class="w3-border-gray w3-hover-border-purple"
-            id="message"
+            v-model="message"
             placeholder="Message..."
             required
             style="width:100%; height:100px"
@@ -61,8 +59,43 @@
 </template>
 
 <script>
-export default {}
+import axios from 'axios'
+
+export default {
+  data() {
+    return { name: '', email: '', message: '' }
+  },
+  methods: {
+    contact() {
+      this.$emit('hide-contact-modal')
+      axios
+        .post('http://127.0.0.1:8000/api/contact/', {
+          full_name: this.name,
+          email: this.email,
+          content: this.message
+        })
+        .then(function() {
+          alert('Thank you very much for leaving me a message!')
+        })
+        .catch(function() {
+          alert('Sorry, I did something bad. Try again in a little bit!')
+        })
+      this.name = ''
+      this.email = ''
+      this.content = ''
+    }
+  }
+}
 </script>
 
 <style scoped>
+.w3-modal {
+  display: block;
+}
+.w3-modal-content {
+  background-image: url('../assets/images/header.png');
+}
+form {
+  background-image: url('../assets/images/article.png');
+}
 </style>

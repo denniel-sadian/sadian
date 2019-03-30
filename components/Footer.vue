@@ -39,6 +39,7 @@
         onsubmit="return subscribe()"
         class="w3-container"
         style="min-width:300px"
+        @submit.prevent="subscribe()"
       >
         <input
           type="email"
@@ -46,6 +47,7 @@
           class="w3-hover-light-gray"
           style="padding:8px; border:3px solid #9c27b0; border-radius:32px 0px 0px 32px;"
           placeholder="Your email"
+          v-model="email"
           required
         >
         <button
@@ -69,7 +71,7 @@ import axios from 'axios'
 
 export default {
   data() {
-    return { q: {} }
+    return { q: {}, email: '' }
   },
   computed: {
     day() {
@@ -95,9 +97,23 @@ export default {
       return new Date().getFullYear()
     }
   },
+  methods: {
+    subscribe() {
+      axios
+        .post('http://127.0.0.1:8000/blog/api/subscribe/', {
+          email: this.email
+        })
+        .then(function() {
+          alert('Thank you!')
+        })
+        .catch(function() {
+          alert('That email has been registered already.')
+        })
+    }
+  },
   created() {
     var day = new Date().getDay()
-    axios.get('https://denniel.herokuapp.com/extras/api/days/').then(res => {
+    axios.get('http://127.0.0.1:8000/extras/api/days/').then(res => {
       this.q = res.data[day - 1]
     })
   }

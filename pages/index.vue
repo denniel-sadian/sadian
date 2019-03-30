@@ -54,7 +54,7 @@
             Vue for front-end. I also have a little knowledge of some other languages.
             I can also do automation like web scraping. You can find my
             works in my
-            <nuxt-link to="/portfolio" class="w3-hover-text-purple">portfolio.</nuxt-link>
+            <nuxt-link to="/portfolio" class="w3-hover-text-purple">portfolio</nuxt-link>.
           </p>
         </div>
         <div class="w3-col l5 m5 w3-center w3-padding">

@@ -13,7 +13,7 @@
           <i class="fa fa-chevron-left"></i>￼
         </span>
 
-        <span class="current">{{ pageNumber+1 }} of {{ max + 1 }}</span>
+        <span>{{ pageNumber+1 }} of {{ max + 1 }}</span>
 
         <nuxt-link
           v-if="pageNumber != max"

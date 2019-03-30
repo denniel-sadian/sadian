@@ -24,7 +24,7 @@
       </nuxt-link>
       <button
         class="w3-bar-item w3-button w3-large w3-round-xxlarge"
-        @click="contactShow = !contactShow"
+        @click="contactShow = !contactShow; navShow = !navShow"
       >
         <b>
           <i class="fa fa-send"></i> Contact
@@ -59,16 +59,15 @@
           <i class="fa fa-close"></i>
         </button>
         <form
-          action="{% url 'personal:index' %}"
-          method="get"
+          @submit.prevent="search(); navShow = !navShow"
           class="w3-bar-item w3-container w3-border-purple w3-bottombar"
         >
           <input
-            name="q"
+            @input="search()"
+            v-model="q"
             type="text"
             class="w3-input w3-hover-light-gray w3-light-white w3-col s10"
             placeholder="Search project..."
-            value
             style="border:0px; border-radius:32px 0px 0px 32px;"
             required="required"
           >
@@ -92,7 +91,7 @@
         </nuxt-link>
         <button
           class="w3-bar-item w3-button w3-large w3-round-xxlarge"
-          @click="contactShow = !contactShow"
+          @click="contactShow = !contactShow; navShow = !navShow"
         >
           <b>
             <i class="fa fa-send"></i> Contact
@@ -119,16 +118,15 @@
         <i class="fa fa-bars"></i>
       </button>
       <form
-        action="{% url 'personal:index' %}#list"
-        method="get"
         class="w3-container w3-hide-small w3-hide-medium w3-display-topright w3-margin-top"
+        @submit.prevent="search(); navShow = !navShow"
       >
         <input
-          name="q"
+          @input="search()"
+          v-model="q"
           type="text"
           class="w3-input w3-hover-light-gray w3-light-white w3-col s10"
           placeholder="Search project..."
-          value
           style="border:0px; border-radius:32px 0px 0px 32px;"
           required="required"
         >
@@ -166,8 +164,8 @@
 
     <transition-group
       name="contact"
-      enter-active-class="animated zoomInUp"
-      leave-active-class="animated zoomOutUp"
+      enter-active-class="animated bounceInDown"
+      leave-active-class="animated bounceOutUp"
     >
       <Contact v-show="contactShow" key="contact" @hide-contact-modal="contactShow = !contactShow"/>
     </transition-group>
@@ -188,7 +186,16 @@ export default {
     Contact
   },
   data() {
-    return { navShow: false, contactShow: true }
+    return {
+      navShow: false,
+      contactShow: false,
+      q: ''
+    }
+  },
+  methods: {
+    search() {
+      this.$router.push({ name: 'portfolio', query: { q: this.q } })
+    }
   }
 }
 </script>

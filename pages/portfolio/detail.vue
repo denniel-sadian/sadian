@@ -30,13 +30,9 @@
               >here</a>.
             </dd>
             <dd v-else>
-              Source code not available. please
-              <span
-                class="w3-large w3-text-purple w3-hover-blue w3-round"
-                onclick="$('#contactModal').slideDown()"
-                style="cursor:pointer"
-              >contact</span>
-              the programmer if you want to have the source code. Denniel is very lazy. You could just visit him on github, maybe he has
+              Source code not available. Please
+              contact him if you want to have the source code. Denniel is very lazy.
+              You could just visit him on github, maybe he has
               pushed the source code there.
             </dd>
           </dl>
@@ -65,11 +61,9 @@ export default {
   },
   methods: {
     getProject(id) {
-      axios
-        .get('https://denniel.herokuapp.com/api/projects/' + id)
-        .then(res => {
-          this.project = res.data
-        })
+      axios.get('http://127.0.0.1:8000/api/projects/' + id).then(res => {
+        this.project = res.data
+      })
     }
   },
   created() {

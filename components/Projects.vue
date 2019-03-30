@@ -30,8 +30,15 @@
       <projects-paginator :actualNumber="projects.length" :pageNumber="page"/>
     </div>
 
-    <div v-else class="w3-center w3-text-purple w3-padding w3-margin">
+    <div v-else-if="!foundNone" class="w3-center w3-text-purple w3-padding w3-margin">
       <i class="w3-large fa fa-spinner w3-spin"></i>
+    </div>
+
+    <div v-else class="w3-center w3-text-red w3-padding w3-margin animated bounceIn">
+      <h1>
+        <i class="fa fa-exclamation-triangle"></i>
+        <br>Sorry, I found none.
+      </h1>
     </div>
   </div>
 </template>
@@ -48,7 +55,8 @@ export default {
     return {
       projects: [],
       size: 12,
-      pageCount: 0
+      pageCount: 0,
+      foundNone: false
     }
   },
   computed: {
@@ -68,17 +76,20 @@ export default {
   watch: {
     $route: function(r) {
       this.projects = []
-      this.getProjects(r.query.category)
+      this.getProjects(r.query.category, r.query.q)
     }
   },
   methods: {
-    getProjects(c) {
-      var link
-      if (c) link = 'https://denniel.herokuapp.com/api/projects/?category=' + c
-      else link = 'https://denniel.herokuapp.com/api/projects/'
+    getProjects(c, q) {
+      var link = 'http://127.0.0.1:8000/api/projects/'
+      if (q) link += '?q=' + q
+      else if (c) link += '?category=' + c
       axios.get(link).then(res => {
         this.projects = res.data
-        this.pageCount = Math.ceil(this.projects.length / this.size)
+        if (this.projects.length) {
+          this.pageCount = Math.ceil(this.projects.length / this.size)
+          this.foundNone = false
+        } else this.foundNone = true
       })
     }
   },
@@ -89,7 +100,8 @@ export default {
 </script>
 
 <style scoped>
-.w3-spin {
+.w3-spin,
+.fa-exclamation-triangle {
   font-size: 80px !important;
 }
 .proj-image {
