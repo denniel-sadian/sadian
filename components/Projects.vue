@@ -23,7 +23,7 @@
           <img :src="p.image" :alt="p.name" class="w3-image proj-image">
           <div class="content">
             <h4>{{ p.name }}</h4>
-            <p class="w3-small">{{ p.date_created }}</p>
+            <p class="w3-small">{{ new Date(p.date_created).toDateString() }}</p>
           </div>
         </div>
       </div>
@@ -89,12 +89,21 @@ export default {
         if (this.projects.length) {
           this.pageCount = Math.ceil(this.projects.length / this.size)
           this.foundNone = false
+          if (this.projects.length == 1) {
+            this.$router.push({
+              name: 'portfolio-detail',
+              query: {
+                id: this.projects[0].id,
+                category: this.projects[0].category
+              }
+            })
+          }
         } else this.foundNone = true
       })
     }
   },
   created() {
-    this.getProjects(this.$route.query.category)
+    this.getProjects(this.$route.query.category, this.$route.query.q)
   }
 }
 </script>

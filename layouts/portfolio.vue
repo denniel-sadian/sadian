@@ -72,7 +72,6 @@
           class="w3-bar-item w3-container w3-border-purple w3-bottombar"
         >
           <input
-            @input="search()"
             v-model="q"
             type="text"
             class="w3-input w3-hover-light-gray w3-light-white w3-col s10"
@@ -131,7 +130,6 @@
         @submit.prevent="search(); navShow = !navShow"
       >
         <input
-          @input="search()"
           v-model="q"
           type="text"
           class="w3-input w3-hover-light-gray w3-light-white w3-col s10"
@@ -181,13 +179,7 @@
       <nuxt/>
     </div>
 
-    <transition-group
-      name="contact"
-      enter-active-class="animated bounceInDown"
-      leave-active-class="animated bounceOutUp"
-    >
-      <Contact v-show="contactShow" key="contact" @hide-contact-modal="contactShow = !contactShow"/>
-    </transition-group>
+    <Contact :show="contactShow" key="contact" @hide-contact-modal="contactShow = !contactShow"/>
 
     <Footer/>
   </div>

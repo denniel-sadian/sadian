@@ -1,9 +1,13 @@
 <template>
-  <div></div>
+  <div>
+    <ArticleList/>
+  </div>
 </template>
 
 <script>
-export default { layout: 'blog' }
+import ArticleList from '~/components/ArticleList.vue'
+
+export default { layout: 'blog', components: { ArticleList } }
 </script>
 
 <style scoped>

@@ -13,7 +13,7 @@
           <i class="fa fa-chevron-left"></i>￼
         </span>
 
-        <span>{{ pageNumber+1 }} of {{ max + 1 }}</span>
+        <span>{{ pageNumber + 1 }} of {{ max + 1 }}</span>
 
         <nuxt-link
           v-if="pageNumber != max"
@@ -47,7 +47,8 @@ export default {
   },
   computed: {
     max() {
-      return Math.floor(this.actualNumber / 12)
+      var m = this.actualNumber / 12
+      return Math.floor(m)
     },
     previousLink() {
       var link = { query: { page: this.pageNumber - 1 } }

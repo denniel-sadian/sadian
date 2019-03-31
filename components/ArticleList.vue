@@ -23,16 +23,13 @@
               <br>
               <span class="w3-small">
                 <i class="fa fa-calendar"></i>
-                {{ a.pub_date }}
-                <br>
-                <i class="fa fa-commenting-o"></i> Comments:
-                <b class="w3-text-purple w3-large">{{ a.comments }}</b>
+                {{ new Date(a.pub_date).toDateString() }}
               </span>
             </p>
             <p class="shorter-content w3-border-bottom w3-border-purple">{{ a.preview_content }}</p>
             <nuxt-link
               :to="{name: 'blog-detail', query: {id: a.id}}"
-              class="w3-button w3-purple w3-margin-bottom w3-round-xxlarge"
+              class="w3-button w3-purple w3-margin-bottom w3-right w3-round-xxlarge"
             >
               <b>
                 <i class="fa fa-eye"></i> Read more
@@ -101,12 +98,18 @@ export default {
         if (this.articles.length) {
           this.pageCount = Math.ceil(this.articles.length / this.size)
           this.foundNone = false
+          if (this.articles.length == 1) {
+            this.$router.push({
+              name: 'blog-detail',
+              query: { id: this.articles[0].id }
+            })
+          }
         } else this.foundNone = true
       })
     }
   },
   created() {
-    this.getArticles(this.$route.query.category)
+    this.getArticles(this.$route.query.q)
   }
 }
 </script>

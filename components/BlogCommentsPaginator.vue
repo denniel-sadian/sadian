@@ -13,10 +13,10 @@
           <i class="fa fa-chevron-left"></i>￼
         </span>
 
-        <span>{{ pageNumber+1 }} of {{ max + 1 }}</span>
+        <span>{{ pageNumber + 1 }} of {{ max }}</span>
 
         <nuxt-link
-          v-if="pageNumber != max"
+          v-if="pageNumber + 1 != max"
           :to="nextLink"
           style="text-decoration:none"
           class="w3-button w3-purple w3-hover-pink w3-round-xxlarge"
@@ -48,16 +48,18 @@ export default {
   computed: {
     max() {
       var m = this.actualNumber / 5
+      if (!(m % 1 === 0)) m += 1
       return Math.floor(m)
     },
+    id() {
+      return this.$route.query.id
+    },
     previousLink() {
-      var link = { query: { page: this.pageNumber - 1 } }
-      if (this.$route.query.q) link.query.q = this.$route.query.q
+      var link = { query: { page: this.pageNumber - 1, id: this.id } }
       return link
     },
     nextLink() {
-      var link = { query: { page: this.pageNumber + 1 } }
-      if (this.$route.query.q) link.query.q = this.$route.query.q
+      var link = { query: { page: this.pageNumber + 1, id: this.id } }
       return link
     }
   }

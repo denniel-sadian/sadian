@@ -19,7 +19,7 @@
             <span class="w3-hide-small">Blog</span>
           </nuxt-link>
           <button
-            onclick="$('#contactModal').slideDown()"
+            @click="contactShow = !contactShow"
             class="light-gray-opacity w3-bar-item w3-round-xxlarge w3-button w3-right"
           >
             <i class="fa fa-envelope"></i>
@@ -116,16 +116,28 @@
         </div>
       </div>
     </div>
+    <transition-group
+      name="contact"
+      enter-active-class="animated bounceInDown"
+      leave-active-class="animated bounceOutUp"
+    >
+      <Contact v-show="contactShow" key="contact" @hide-contact-modal="contactShow = !contactShow"/>
+    </transition-group>
     <Footer/>
   </div>
 </template>
 
 <script>
 import Footer from '~/components/Footer.vue'
+import Contact from '~/components/Contact.vue'
 
 export default {
   components: {
-    Footer
+    Footer,
+    Contact
+  },
+  data() {
+    return { contactShow: false }
   }
 }
 </script>

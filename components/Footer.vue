@@ -85,7 +85,7 @@ export default {
         'Saturday',
         'Sunday'
       ]
-      return names[day - 1]
+      return names[day]
     },
     quote() {
       return this.q.quote
@@ -113,8 +113,8 @@ export default {
   },
   created() {
     var day = new Date().getDay()
-    axios.get('http://127.0.0.1:8000/extras/api/days/').then(res => {
-      this.q = res.data[day - 1]
+    axios.get('http://127.0.0.1:8000/extras/api/days/' + this.day).then(res => {
+      this.q = res.data
     })
   }
 }
