@@ -8,7 +8,7 @@
       <div
         v-for="p in pagedProjects"
         :key="p.id"
-        class="w3-animate-opacity w3-col l4 m6 w3-container w3-margin-top w3-margin-bottom"
+        class="w3-col l4 m6 w3-container w3-margin-top w3-margin-bottom"
       >
         <div
           class="container w3-hover-shadow w3-border w3-border-purple w3-round-xlarge"
@@ -46,6 +46,7 @@ import axios from 'axios'
 import ProjectsPaginator from '~/components/ProjectsPaginator.vue'
 
 export default {
+  transition: 'page',
   components: {
     ProjectsPaginator
   },
