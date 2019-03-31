@@ -26,6 +26,11 @@
           <img src="~/assets/images/icon.png" width="25">
           <span class="w3-hide-small">Code Philosophy</span>
         </nuxt-link>
+        <nuxt-link to="/" class="w3-bar-item light-gray-opacity w3-round-xxlarge w3-button">
+          <span class="w3-hide-small">
+            <i class="fa fa-home"></i> Home
+          </span>
+        </nuxt-link>
         <nuxt-link
           to="/portfolio"
           class="light-gray-opacity w3-bar-item w3-round-xxlarge w3-button"
@@ -85,7 +90,11 @@
 
     <div class="w3-container w3-margin">
       <div class="w3-content w3-margin-top w3-margin-bottom">
-        <img :src="article.image" class="w3-image entry-image">
+        <img
+          :src="article.image"
+          class="w3-image entry-image"
+          style="background: rgba(211, 211, 211, 0.9)"
+        >
         <div id="content" v-html="article.content" class="w3-large"></div>
         <button
           v-if="article.can_comment"
@@ -108,6 +117,7 @@
     <Footer/>
   </div>
 </template>
+            
 
 <script>
 import axios from 'axios'
@@ -119,6 +129,7 @@ import Footer from '~/components/Footer.vue'
 import Contact from '~/components/Contact.vue'
 
 export default {
+  transition: 'page',
   components: {
     BlogArchive,
     BlogSmallNav,
@@ -136,6 +147,14 @@ export default {
       archiveShow: false,
       commentShow: false,
       q: ''
+    }
+  },
+  computed: {
+    title() {
+      return this.article.headline + ' by Denniel Sadian'
+    },
+    description() {
+      return this.article.preview_content
     }
   },
   watch: {
@@ -159,6 +178,18 @@ export default {
   },
   created() {
     this.getArticle(this.$route.query.id)
+  },
+  head() {
+    return {
+      title: this.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.description
+        }
+      ]
+    }
   }
 }
 </script>

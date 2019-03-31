@@ -56,6 +56,7 @@
 import axios from 'axios'
 
 export default {
+  transition: 'page',
   layout: 'portfolio',
   data() {
     return { about: [], timelines: [] }
@@ -67,6 +68,18 @@ export default {
     axios.get('http://127.0.0.1:8000/api/timeline/').then(res => {
       this.timelines = res.data
     })
+  },
+  head() {
+    return {
+      title: 'Who is Denniel Luis Saway Sadian',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'He is a programmamer who likes to code, of course.'
+        }
+      ]
+    }
   }
 }
 </script>

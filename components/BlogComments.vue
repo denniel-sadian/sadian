@@ -72,12 +72,16 @@ export default {
       return this.comments.slice(start, end)
     }
   },
+  watch: {
+    $route: function(r) {
+      this.getComments(r.query.id)
+    }
+  },
   methods: {
     getComments(id) {
       var link = 'http://127.0.0.1:8000/blog/api/entries/' + id
       axios.get(link + '/comments').then(res => {
         this.comments = res.data
-        alert(this.comments.length / 5)
         this.pageCount = Math.ceil(this.comments.length / this.size)
       })
     }

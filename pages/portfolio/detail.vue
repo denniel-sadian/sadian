@@ -50,9 +50,18 @@
 import axios from 'axios'
 
 export default {
+  transition: 'page',
   layout: 'portfolio',
   data() {
     return { project: {} }
+  },
+  computed: {
+    title() {
+      return this.project.name + " | Denniel's Portfolio"
+    },
+    description() {
+      return this.project.description
+    }
   },
   watch: {
     $route: function(r) {
@@ -68,6 +77,18 @@ export default {
   },
   created() {
     this.getProject(this.$route.query.id)
+  },
+  head() {
+    return {
+      title: this.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.description
+        }
+      ]
+    }
   }
 }
 </script>

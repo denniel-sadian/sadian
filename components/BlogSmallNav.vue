@@ -44,6 +44,11 @@
             <i class="fa fa-coffee"></i> Portfolio
           </b>
         </nuxt-link>
+        <nuxt-link to="/blog" class="w3-bar-item w3-button">
+          <b>
+            <i class="fa fa-book"></i> Blog
+          </b>
+        </nuxt-link>
         <button class="w3-bar-item w3-button" @click="$emit('show-contact')">
           <b>
             <i class="fa fa-send"></i> Contact

@@ -28,7 +28,7 @@
             </p>
             <p class="shorter-content w3-border-bottom w3-border-purple">{{ a.preview_content }}</p>
             <nuxt-link
-              :to="{name: 'blog-detail', query: {id: a.id}}"
+              :to="{name: 'blog-detail', query: {id: a.id, reload: 0}}"
               class="w3-button w3-purple w3-margin-bottom w3-right w3-round-xxlarge"
             >
               <b>

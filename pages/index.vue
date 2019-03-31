@@ -116,13 +116,7 @@
         </div>
       </div>
     </div>
-    <transition-group
-      name="contact"
-      enter-active-class="animated bounceInDown"
-      leave-active-class="animated bounceOutUp"
-    >
-      <Contact v-show="contactShow" key="contact" @hide-contact-modal="contactShow = !contactShow"/>
-    </transition-group>
+    <Contact :show="contactShow" key="contact" @hide-contact-modal="contactShow = !contactShow"/>
     <Footer/>
   </div>
 </template>
@@ -132,12 +126,25 @@ import Footer from '~/components/Footer.vue'
 import Contact from '~/components/Contact.vue'
 
 export default {
+  transition: 'page',
   components: {
     Footer,
     Contact
   },
   data() {
     return { contactShow: false }
+  },
+  head() {
+    return {
+      title: 'Denniel Luis S. Sadian',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Greetings! Welcome to my website!'
+        }
+      ]
+    }
   }
 }
 </script>

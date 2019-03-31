@@ -7,10 +7,7 @@
     >
       <div v-show="show" key="comment-form" id="commentForm" class="w3-modal">
         <div class="w3-modal-content">
-          <form
-            class="w3-container w3-light-grey w3-padding"
-            @submit.prevent="comment(); $emit('hide-comment')"
-          >
+          <form class="w3-container w3-light-grey w3-padding" @submit.prevent="comment()">
             <h4>
               <i class="fa fa-commenting"></i> Comment
             </h4>
@@ -76,15 +73,24 @@ export default {
   },
   methods: {
     comment() {
-      axios.post(
-        'http://127.0.0.1:8000/blog/api/entries/' + this.id + '/comments/',
-        {
-          email: this.email,
-          full_name: this.name,
-          content: this.message
-        }
-      )
-      this.$router.push({ name: 'blog-detail', query: { id: this.id } })
+      axios
+        .post(
+          'http://127.0.0.1:8000/blog/api/entries/' + this.id + '/comments/',
+          {
+            email: this.email,
+            full_name: this.name,
+            content: this.message
+          }
+        )
+        .then(res => {
+          if (res.status == 200) {
+            this.$emit('hide-comment')
+            this.$router.push({
+              name: 'blog-detail',
+              query: { id: this.id, reload: this.$route.query.reload + 1 }
+            })
+          }
+        })
     }
   }
 }
