@@ -77,21 +77,14 @@ export default {
   methods: {
     contact() {
       this.$emit('hide-contact-modal')
-      axios
-        .post('http://127.0.0.1:8000/api/contact/', {
-          full_name: this.name,
-          email: this.email,
-          content: this.message
-        })
-        .then(function() {
-          alert('Thank you very much for leaving me a message!')
-        })
-        .catch(function() {
-          alert('Sorry, I did something bad. Try again in a little bit!')
-        })
+      axios.post('http://127.0.0.1:8000/api/contact/', {
+        full_name: this.name,
+        email: this.email,
+        content: this.message
+      })
       this.name = ''
       this.email = ''
-      this.content = ''
+      this.message = ''
     }
   }
 }
