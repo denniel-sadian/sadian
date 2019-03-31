@@ -99,9 +99,16 @@ export default {
   },
   methods: {
     subscribe() {
-      axios.post('http://127.0.0.1:8000/blog/api/subscribe/', {
-        email: this.email
-      })
+      axios
+        .post('http://127.0.0.1:8000/blog/api/subscribe/', {
+          email: this.email
+        })
+        .then(function() {
+          alert('Thank you!')
+        })
+        .catch(function() {
+          alert('That email has been registered already.')
+        })
     }
   },
   created() {
