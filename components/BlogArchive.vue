@@ -43,7 +43,7 @@
           </li>
         </ul>
         <div v-else class="w3-center text-purple" style="font-size: 80px">
-          <i class="fa fa-spinner w3-text-black w3-spin"></i>
+          <i class="fa fa-spinner w3-text-purple w3-spin"></i>
         </div>
       </nav>
     </transition-group>
