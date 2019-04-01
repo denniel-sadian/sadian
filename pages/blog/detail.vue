@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :key="article.id">
     <BlogSmallNav
       :show="navShow"
       @hide-small-nav="navShow = !navShow"
@@ -83,13 +83,21 @@
       </nav>
 
       <header class="w3-container w3-text-white w3-center w3-border-purple w3-bottombar">
-        <h1 id="headline" class="w3-padding">{{ article.headline }}</h1>
-        <p class="w3-large">{{ new Date(article.pub_date).toDateString() }}</p>
+        <div v-if="article.headline" class="animated fadeIn">
+          <h1 id="headline" class="animated fadeIn w3-padding">{{ article.headline }}</h1>
+          <p class="w3-large animated fadeIn">{{ new Date(article.pub_date).toDateString() }}</p>
+        </div>
+        <div v-else class="w3-center" style="font-size: 80px">
+          <i class="fa fa-spinner w3-spin"></i>
+        </div>
       </header>
     </div>
 
-    <div class="w3-container w3-margin">
-      <div class="w3-content w3-margin-top w3-margin-bottom">
+    <div class="w3-container ar-cont w3-margin">
+      <div
+        v-if="article.headline"
+        class="animated fadeIn w3-content w3-margin-top w3-margin-bottom"
+      >
         <img
           :src="article.image"
           class="w3-image entry-image"
@@ -108,6 +116,9 @@
         </button>
         <p v-else class="w3-opacity w3-right">Commenting was turned off</p>
         <BlogComments/>
+      </div>
+      <div v-else class="w3-center" style="font-size: 80px">
+        <i class="fa fa-spinner w3-text-purple w3-spin"></i>
       </div>
     </div>
     <BlogCommentForm :show="commentShow" @hide-comment="commentShow = !commentShow"/>
@@ -164,7 +175,7 @@ export default {
   },
   methods: {
     getArticle(id) {
-      var link = 'http://127.0.0.1:8000/blog/api/entries/' + id
+      var link = 'https://denniel.herokuapp.com/blog/api/entries/' + id
       axios.get(link).then(res => {
         this.article = res.data
       })
@@ -206,7 +217,7 @@ header {
   background-repeat: no-repeat;
 }
 header h1 {
-  font-size: 70px;
+  font-size: 60px;
   line-height: 1;
 }
 .light-gray-opacity {
@@ -214,20 +225,23 @@ header h1 {
   margin-left: 2px;
   margin-right: 2px;
 }
+.entry-image {
+  height: 300px;
+  object-fit: cover;
+  width: 100%;
+}
 @media (max-width: 768px) {
   header {
     padding-top: 90px !important;
     padding-bottom: 40px !important;
   }
   header h1 {
-    font-size: 60px;
+    font-size: 40px;
   }
 }
 @media (max-width: 425px) {
   header h1 {
-    font-size: 50px;
-    overflow-y: hidden;
-    overflow-x: scroll;
+    font-size: 30px;
   }
   header {
     padding-top: 80px !important;
@@ -236,15 +250,12 @@ header h1 {
   #content {
     font-size: 15px !important;
   }
-}
-.entry-image {
-  height: 300px;
-  object-fit: cover;
-  width: 100%;
-}
-@media (max-width: 425px) {
   .entry-image {
     height: 180px;
+  }
+  .ar-cont {
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 </style>

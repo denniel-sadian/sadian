@@ -78,7 +78,7 @@ export default {
     contact() {
       this.$emit('hide-contact-modal')
       axios
-        .post('http://127.0.0.1:8000/api/contact/', {
+        .post('https://denniel.herokuapp.com/api/contact/', {
           full_name: this.name,
           email: this.email,
           content: this.message

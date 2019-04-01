@@ -56,16 +56,16 @@
 import axios from 'axios'
 
 export default {
-  transition: 'page',
+  scrollToTop: true,
   layout: 'portfolio',
   data() {
     return { about: [], timelines: [] }
   },
   created() {
-    axios.get('http://127.0.0.1:8000/api/about/').then(res => {
+    axios.get('https://denniel.herokuapp.com/api/about/').then(res => {
       this.about = res.data
     })
-    axios.get('http://127.0.0.1:8000/api/timeline/').then(res => {
+    axios.get('https://denniel.herokuapp.com/api/timeline/').then(res => {
       this.timelines = res.data
     })
   },

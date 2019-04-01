@@ -73,9 +73,12 @@ export default {
   },
   methods: {
     comment() {
+      this.$emit('hide-comment')
       axios
         .post(
-          'http://127.0.0.1:8000/blog/api/entries/' + this.id + '/comments/',
+          'https://denniel.herokuapp.com/blog/api/entries/' +
+            this.id +
+            '/comments/',
           {
             email: this.email,
             full_name: this.name,
@@ -84,7 +87,6 @@ export default {
         )
         .then(res => {
           if (res.status == 200) {
-            this.$emit('hide-comment')
             this.$router.push({
               name: 'blog-detail',
               query: { id: this.id, reload: this.$route.query.reload + 1 }

@@ -50,7 +50,7 @@
 import axios from 'axios'
 
 export default {
-  transition: 'page',
+  scrollToTop: true,
   layout: 'portfolio',
   data() {
     return { project: {} }
@@ -70,9 +70,11 @@ export default {
   },
   methods: {
     getProject(id) {
-      axios.get('http://127.0.0.1:8000/api/projects/' + id).then(res => {
-        this.project = res.data
-      })
+      axios
+        .get('https://denniel.herokuapp.com/api/projects/' + id)
+        .then(res => {
+          this.project = res.data
+        })
     }
   },
   created() {

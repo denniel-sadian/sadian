@@ -8,7 +8,6 @@
 import ArticleList from '~/components/ArticleList.vue'
 
 export default {
-  transition: 'page',
   layout: 'blog',
   components: { ArticleList },
   head() {

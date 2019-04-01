@@ -126,7 +126,6 @@ import Footer from '~/components/Footer.vue'
 import Contact from '~/components/Contact.vue'
 
 export default {
-  transition: 'page',
   components: {
     Footer,
     Contact
@@ -185,7 +184,7 @@ header h1 {
 }
 @media (max-width: 768px) {
   header {
-    padding-top: 90px !important;
+    padding-top: 40px !important;
     padding-bottom: 40px !important;
   }
   header h1 {
@@ -201,7 +200,7 @@ header h1 {
     font-size: 50px;
   }
   header {
-    padding-top: 80px !important;
+    padding-top: 30px !important;
     padding-bottom: 30px !important;
   }
   .intro-section {

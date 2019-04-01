@@ -59,7 +59,7 @@ export default {
     return { lists: [] }
   },
   created() {
-    axios.get('http://127.0.0.1:8000/blog/api/archive/').then(res => {
+    axios.get('https://denniel.herokuapp.com/blog/api/archive/').then(res => {
       this.lists = res.data
     })
   }

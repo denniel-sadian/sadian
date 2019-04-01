@@ -77,13 +77,13 @@ export default {
     day() {
       var day = new Date().getDay()
       var names = [
+        'Sunday',
         'Monday',
         'Tuesday',
         'Wednesday',
         'Thursday',
         'Friday',
-        'Saturday',
-        'Sunday'
+        'Saturday'
       ]
       return names[day]
     },
@@ -100,7 +100,7 @@ export default {
   methods: {
     subscribe() {
       axios
-        .post('http://127.0.0.1:8000/blog/api/subscribe/', {
+        .post('https://denniel.herokuapp.com/blog/api/subscribe/', {
           email: this.email
         })
         .then(function() {
@@ -113,9 +113,11 @@ export default {
   },
   created() {
     var day = new Date().getDay()
-    axios.get('http://127.0.0.1:8000/extras/api/days/' + this.day).then(res => {
-      this.q = res.data
-    })
+    axios
+      .get('https://denniel.herokuapp.com/extras/api/days/' + this.day)
+      .then(res => {
+        this.q = res.data
+      })
   }
 }
 </script>

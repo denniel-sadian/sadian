@@ -15,7 +15,7 @@
             <img :src="a.image" class="w3-image entry-image" style="border-radius: 5px 5px 0 0">
           </div>
           <div
-            class="w3-container w3-white w3-border-purple w3-bottombar"
+            class="w3-container preview-text w3-white w3-border-purple w3-bottombar"
             style="border-radius: 0 0 5px 5px"
           >
             <p class="w3-large">
@@ -91,7 +91,7 @@ export default {
   },
   methods: {
     getArticles(q) {
-      var link = 'http://127.0.0.1:8000/blog/api/entries/'
+      var link = 'https://denniel.herokuapp.com/blog/api/entries/'
       if (q) link += '?q=' + q
       axios.get(link).then(res => {
         this.articles = res.data
@@ -126,7 +126,14 @@ export default {
 }
 @media (max-width: 425px) {
   .entry-image {
-    height: 180px;
+    height: 120px;
+  }
+  .shorter-content {
+    max-height: 50px;
+    line-height: 1.3;
+  }
+  .preview-text {
+    line-height: 1;
   }
 }
 </style>

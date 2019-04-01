@@ -5,6 +5,7 @@
         <nuxt-link
           v-if="pageNumber != 0"
           :to="previousLink"
+          @click="$scrollTo('#__nuxt', 0, {force: true})"
           class="w3-button w3-purple w3-hover-pink w3-round-xxlarge"
         >
           <i class="fa fa-chevron-left"></i>￼
@@ -18,6 +19,7 @@
         <nuxt-link
           v-if="pageNumber != max"
           :to="nextLink"
+          @click="$scrollTo('#__nuxt', 0, {force: true})"
           style="text-decoration:none"
           class="w3-button w3-purple w3-hover-pink w3-round-xxlarge"
         >

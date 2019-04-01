@@ -8,7 +8,7 @@
       <div
         v-for="p in pagedProjects"
         :key="p.id"
-        class="w3-col l4 m6 w3-container w3-margin-top w3-margin-bottom"
+        class="animated fadeIn w3-col l4 m6 w3-container w3-margin-top w3-margin-bottom"
       >
         <div
           class="container w3-hover-shadow w3-border w3-border-purple w3-round-xlarge"
@@ -46,6 +46,7 @@ import axios from 'axios'
 import ProjectsPaginator from '~/components/ProjectsPaginator.vue'
 
 export default {
+  scrollToTop: true,
   transition: 'page',
   components: {
     ProjectsPaginator
@@ -101,7 +102,7 @@ export default {
   },
   methods: {
     getProjects(c, q) {
-      var link = 'http://127.0.0.1:8000/api/projects/'
+      var link = 'https://denniel.herokuapp.com/api/projects/'
       if (q) link += '?q=' + q
       else if (c) link += '?category=' + c
       axios.get(link).then(res => {
