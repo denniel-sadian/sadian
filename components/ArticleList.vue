@@ -101,7 +101,7 @@ export default {
           if (this.articles.length == 1) {
             this.$router.push({
               name: 'blog-detail',
-              query: { id: this.articles[0].id }
+              query: { id: this.articles[0].id, reload: 0 }
             })
           }
         } else this.foundNone = true
