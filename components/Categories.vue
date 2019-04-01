@@ -31,6 +31,7 @@
               :key="cat"
               v-show="cat != category"
               :to="{'name': 'portfolio', query: {'category': cat}}"
+              :class="{'w3-light-gray': cat == $route.query.category}"
               class="w3-bar-item w3-button w3-light-gray w3-round-xxlarge"
             >{{ cat }}s</nuxt-link>
             <nuxt-link
