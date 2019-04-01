@@ -4,7 +4,7 @@
       <nav class="w3-bar w3-large w3-padding w3-text-white">
         <div class="w3-content">
           <nuxt-link to="/" class="w3-bar-item light-gray-opacity w3-round-xxlarge w3-button">
-            <img src="~/assets/images/icon.png" width="25">
+            <img src="~/assets/images/icon.jpg" width="25">
             <span class="w3-hide-small">Denniel Luis Sadian</span>
           </nuxt-link>
           <nuxt-link
@@ -58,7 +58,7 @@
           </p>
         </div>
         <div class="w3-col l5 m5 w3-center w3-padding">
-          <img src="~/assets/images/binary.PNG" class="intro-img w3-round-xlarge w3-image">
+          <img src="~/assets/images/binary.jpg" class="intro-img w3-round-xlarge w3-image">
         </div>
       </div>
     </div>
@@ -154,7 +154,7 @@ header {
   padding-bottom: 100px !important;
 }
 #header-nav {
-  background: url('../assets/images/header.png');
+  background: url('../assets/images/header.jpg');
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;

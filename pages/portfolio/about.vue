@@ -85,7 +85,7 @@ export default {
 
 <style scoped>
 #about-header {
-  background: url('../../assets/images/binary.PNG');
+  background: url('../../assets/images/binary.jpg');
   background-size: cover;
   background-position: center;
   border-radius: 4px 32px 0px 0px;

@@ -16,7 +16,7 @@
           <img
             key="large_icon"
             v-else
-            src="~/assets/images/icon.png"
+            src="~/assets/images/icon.jpg"
             class="face animated fadeIn w3-image w3-circle w3-margin-top w3-card-4"
             width="150"
           >
@@ -170,7 +170,7 @@
             <img
               key="small_icon"
               v-else
-              src="~/assets/images/icon.png"
+              src="~/assets/images/icon.jpg"
               style="min-height:80px!important; max-height:80px!important"
               width="80"
               class="face animated bounceIn w3-image w3-circle w3-card"
@@ -236,7 +236,7 @@ header,
   width: 25%;
 }
 header {
-  background: url('../assets/images/header.png');
+  background: url('../assets/images/header.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;

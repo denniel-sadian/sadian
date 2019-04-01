@@ -102,9 +102,9 @@ export default {
   display: block;
 }
 .w3-modal-content {
-  background-image: url('../assets/images/header.png');
+  background-image: url('../assets/images/header.jpg');
 }
 form {
-  background-image: url('../assets/images/article.png');
+  background-image: url('../assets/images/article.jpg');
 }
 </style>

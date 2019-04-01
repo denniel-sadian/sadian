@@ -124,7 +124,7 @@ export default {
 
 <style scoped>
 footer {
-  background: url('../assets/images/header.png') no-repeat fixed;
+  background: url('../assets/images/header.jpg') no-repeat fixed;
   background-size: cover;
 }
 .w3-spin {

@@ -23,7 +23,7 @@
     <div id="header-nav">
       <nav class="w3-bar w3-large w3-padding w3-text-white w3-hide-medium w3-hide-small">
         <nuxt-link to="/blog" class="w3-bar-item light-gray-opacity w3-round-xxlarge w3-button">
-          <img src="~/assets/images/icon.png" width="25">
+          <img src="~/assets/images/icon.jpg" width="25">
           <span class="w3-hide-small">Code Philosophy</span>
         </nuxt-link>
         <nuxt-link to="/" class="w3-bar-item light-gray-opacity w3-round-xxlarge w3-button">
@@ -211,7 +211,7 @@ header {
   padding-bottom: 50px !important;
 }
 #header-nav {
-  background: url('../../assets/images/header.png');
+  background: url('../../assets/images/header.jpg');
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;

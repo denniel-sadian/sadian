@@ -128,7 +128,7 @@ export default {
 
 <style scoped>
 header {
-  background: url('../assets/images/header.png') no-repeat fixed;
+  background: url('../assets/images/header.jpg') no-repeat fixed;
   background-size: cover;
 }
 header div h1 {
@@ -139,7 +139,7 @@ header div h1 {
   padding-bottom: 30px;
 }
 #largeNav {
-  background: url('../assets/images/body.png') no-repeat fixed;
+  background: url('../assets/images/body.jpg') no-repeat fixed;
   background-size: cover;
 }
 #archive,
