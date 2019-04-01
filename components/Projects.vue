@@ -46,7 +46,6 @@ import axios from 'axios'
 import ProjectsPaginator from '~/components/ProjectsPaginator.vue'
 
 export default {
-  scrollToTop: true,
   transition: 'page',
   components: {
     ProjectsPaginator

@@ -50,7 +50,6 @@
 import axios from 'axios'
 
 export default {
-  scrollToTop: true,
   layout: 'portfolio',
   data() {
     return { project: {} }
