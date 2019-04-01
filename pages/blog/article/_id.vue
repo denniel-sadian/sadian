@@ -170,7 +170,7 @@ export default {
   },
   watch: {
     $route: function(r) {
-      this.getArticle(r.query.id)
+      this.getArticle(r.params.id)
     }
   },
   methods: {
@@ -188,7 +188,7 @@ export default {
     }
   },
   created() {
-    this.getArticle(this.$route.query.id)
+    this.getArticle(this.$route.params.id)
   },
   head() {
     return {
@@ -201,6 +201,10 @@ export default {
         }
       ]
     }
+  },
+  validate({ params }) {
+    // Must be a number
+    return /^\d+$/.test(params.id)
   }
 }
 </script>
@@ -211,7 +215,7 @@ header {
   padding-bottom: 50px !important;
 }
 #header-nav {
-  background: url('../../assets/images/header.jpg');
+  background: url('../../../assets/images/header.jpg');
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;

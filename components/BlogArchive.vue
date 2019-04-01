@@ -29,10 +29,9 @@
                   class="w3-ul w3-border-purple w3-leftbar list_for_March_2019"
                 >
                   <li
-                    @click="$emit('hide-archive');
-                              $router.push({name: 'blog-detail', query: {id: a[0]}})"
+                    @click="goTo(a[0])"
                     class="w3-hover-purple w3-large"
-                    :class="{'w3-text-yellow': $route.query.id == a[0]}"
+                    :class="{'w3-text-yellow': $route.params.id == a[0]}"
                   >
                     <span class="w3-opacity">({{ a[1] }})</span>
                     {{ a[2] }}
@@ -57,6 +56,12 @@ export default {
   props: ['show'],
   data() {
     return { lists: [] }
+  },
+  methods: {
+    goTo(id) {
+      this.$emit('hide-archive')
+      this.$router.push({ path: '/blog/article/' + id, query: { reload: 0 } })
+    }
   },
   created() {
     axios.get('https://denniel.herokuapp.com/blog/api/archive/').then(res => {

@@ -28,7 +28,7 @@
             </p>
             <p class="shorter-content w3-border-bottom w3-border-purple">{{ a.preview_content }}</p>
             <nuxt-link
-              :to="{name: 'blog-detail', query: {id: a.id, reload: 0}}"
+              :to="{path: '/blog/article/'+a.id, query: {reload: 0}}"
               class="w3-button w3-purple w3-margin-bottom w3-right w3-round-xxlarge"
             >
               <b>
@@ -100,8 +100,8 @@ export default {
           this.foundNone = false
           if (this.articles.length == 1) {
             this.$router.push({
-              name: 'blog-detail',
-              query: { id: this.articles[0].id, reload: 0 }
+              path: '/blog/article/' + this.articles[0].id,
+              query: { reload: 0 }
             })
           }
         } else this.foundNone = true

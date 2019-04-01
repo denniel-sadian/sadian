@@ -13,10 +13,7 @@
         <div
           class="container w3-hover-shadow w3-border w3-border-purple w3-round-xlarge"
           @click="
-            $router.push({
-              name: 'portfolio-detail',
-              query: { id: p.id, category: p.category }
-            })"
+            $router.push('/portfolio/project/'+p.id)"
         >
           <img :src="p.image" :alt="p.name" class="w3-image proj-image">
           <div class="content">
@@ -110,13 +107,7 @@ export default {
           this.pageCount = Math.ceil(this.projects.length / this.size)
           this.foundNone = false
           if (this.projects.length == 1) {
-            this.$router.push({
-              name: 'portfolio-detail',
-              query: {
-                id: this.projects[0].id,
-                category: this.projects[0].category
-              }
-            })
+            this.$router.push('/portfolio/project/' + this.projects[0].id)
           }
         } else this.foundNone = true
       })

@@ -68,7 +68,7 @@ export default {
   },
   computed: {
     id() {
-      return this.$route.query.id
+      return this.$route.params.id
     }
   },
   methods: {
@@ -88,8 +88,8 @@ export default {
         .then(res => {
           if (res.status == 200) {
             this.$router.push({
-              name: 'blog-detail',
-              query: { id: this.id, reload: this.$route.query.reload + 1 }
+              path: '/blog/article/' + this.id,
+              query: { reload: this.$route.query.reload + 1 }
             })
           }
         })

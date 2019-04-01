@@ -6,7 +6,7 @@
       class="w3-container w3-margin-bottom"
       style="padding-left:0px; padding-right:0px"
     >
-      <div class="w3-container w3-light-gray">
+      <div class="w3-container w3-light-gray" id="article-comments">
         <h4>
           There
           <span v-if="comments.length > 1">
@@ -74,7 +74,7 @@ export default {
   },
   watch: {
     $route: function(r) {
-      this.getComments(r.query.id)
+      this.getComments(r.params.id)
     }
   },
   methods: {
@@ -87,7 +87,7 @@ export default {
     }
   },
   created() {
-    this.getComments(this.$route.query.id)
+    this.getComments(this.$route.params.id)
   }
 }
 </script>

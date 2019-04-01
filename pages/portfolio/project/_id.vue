@@ -64,7 +64,7 @@ export default {
   },
   watch: {
     $route: function(r) {
-      this.getProject(r.query.id)
+      this.getProject(r.params.id)
     }
   },
   methods: {
@@ -77,7 +77,7 @@ export default {
     }
   },
   created() {
-    this.getProject(this.$route.query.id)
+    this.getProject(this.$route.params.id)
   },
   head() {
     return {
@@ -90,6 +90,10 @@ export default {
         }
       ]
     }
+  },
+  validate({ params }) {
+    // Must be a number
+    return /^\d+$/.test(params.id)
   }
 }
 </script>
