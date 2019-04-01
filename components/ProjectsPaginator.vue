@@ -2,27 +2,27 @@
   <div v-show="actualNumber > 12">
     <div class="w3-container w3-center w3-margin-bottom">
       <span class="step-links">
-        <nuxt-link
+        <button
+          @click="goPrevious()"
           v-if="pageNumber != 0"
-          :to="previousLink"
           class="w3-button w3-purple w3-hover-pink w3-round-xxlarge"
         >
           <i class="fa fa-chevron-left"></i>￼
-        </nuxt-link>
+        </button>
         <span v-else class="w3-button w3-gray w3-hover-pink w3-round-xxlarge">
           <i class="fa fa-chevron-left"></i>￼
         </span>
 
         <span>{{ pageNumber + 1 }} of {{ max + 1 }}</span>
 
-        <nuxt-link
+        <button
+          @click="goNext()"
           v-if="pageNumber != max"
-          :to="nextLink"
           style="text-decoration:none"
           class="w3-button w3-purple w3-hover-pink w3-round-xxlarge"
         >
           <i class="fa fa-chevron-right"></i>
-        </nuxt-link>
+        </button>
         <span v-else class="w3-button w3-gray w3-hover-pink w3-round-xxlarge">
           <i class="fa fa-chevron-right"></i>￼
         </span>
@@ -63,6 +63,16 @@ export default {
       if (this.$route.query.category)
         link.query.category = this.$route.query.category
       return link
+    }
+  },
+  methods: {
+    goPrevious() {
+      this.$scrollTo('#projects', 0, { force: true })
+      this.$router.push(this.previousLink)
+    },
+    goNext() {
+      this.$scrollTo('#projects', 0, { force: true })
+      this.$router.push(this.nextLink)
     }
   }
 }

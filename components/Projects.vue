@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="projects.length">
+    <div v-if="projects.length" id="projects">
       <h3 class="w3-text-purple">
         Total of
         <span class="w3-tag w3-round-xxlarge w3-purple w3-circle">{{ projects.length }}</span>
