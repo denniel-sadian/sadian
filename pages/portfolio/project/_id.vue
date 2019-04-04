@@ -60,6 +60,9 @@ export default {
     },
     description() {
       return this.project.description
+    },
+    previewImg() {
+      return this.project.image
     }
   },
   watch: {
@@ -69,9 +72,11 @@ export default {
   },
   methods: {
     getProject(id) {
-      axios.get('https://denniel.herokuapp.com/api/projects/' + id).then(res => {
-        this.project = res.data
-      })
+      axios
+        .get('https://denniel.herokuapp.com/api/projects/' + id)
+        .then(res => {
+          this.project = res.data
+        })
     }
   },
   created() {
@@ -85,6 +90,11 @@ export default {
           hid: 'description',
           name: 'description',
           content: this.description
+        },
+        {
+          hid: 'preview_img',
+          property: 'og:image',
+          content: this.previewImg
         }
       ]
     }

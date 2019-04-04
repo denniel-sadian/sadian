@@ -167,6 +167,9 @@ export default {
     },
     description() {
       return this.article.preview_content
+    },
+    previewImg() {
+      return this.article.image
     }
   },
   watch: {
@@ -199,6 +202,11 @@ export default {
           hid: 'description',
           name: 'description',
           content: this.description
+        },
+        {
+          hid: 'preview_img',
+          property: 'og:image',
+          content: this.previewImg
         }
       ]
     }
