@@ -7,7 +7,7 @@
     />
 
     <button
-      class="w3-button w3-hide-large w3-left w3-large w3-text-white"
+      class="w3-button w3-hide-large w3-hide-medium w3-left w3-large w3-text-white"
       @click="navShow = !navShow; archiveShow = false"
       style="background: none"
     >
@@ -15,28 +15,29 @@
     </button>
     <button
       @click="navShow = false; archiveShow = !archiveShow"
-      class="w3-margin-top w3-margin-right light-gray-opacity w3-hide-large w3-button w3-display-topright w3-text-white w3-round-xxlarge w3-large light-gray-opac"
+      class="w3-margin-top w3-margin-right light-gray-opacity w3-hide-large w3-hide-medium w3-button w3-display-topright w3-text-white w3-round-xxlarge w3-large light-gray-opac"
     >
       <i class="fa fa-list-ul"></i> Archive
     </button>
 
     <div id="header-nav">
-      <nav class="w3-bar w3-large w3-padding w3-text-white w3-hide-medium w3-hide-small">
+      <nav class="w3-bar w3-large w3-padding w3-text-white w3-hide-small">
         <nuxt-link to="/blog" class="w3-bar-item light-gray-opacity w3-round-xxlarge w3-button">
           <img src="~/assets/images/icon.jpg" width="25">
-          <span class="w3-hide-small">Code Philosophy</span>
+          <span class="w3-hide-small w3-hide-medium">Code Philosophy</span>
         </nuxt-link>
         <nuxt-link to="/" class="w3-bar-item light-gray-opacity w3-round-xxlarge w3-button">
           <span class="w3-hide-small">
-            <i class="fa fa-home"></i> Home
+            <i class="fa fa-home"></i>
+            <span class="w3-hide-medium">Home</span>
           </span>
         </nuxt-link>
         <nuxt-link
           to="/portfolio"
           class="light-gray-opacity w3-bar-item w3-round-xxlarge w3-button"
         >
-          <i class="fa fa-id-card"></i>
-          <span class="w3-hide-small">Portfolio</span>
+          <i class="fa fa-coffee"></i>
+          <span class="w3-hide-medium">Portfolio</span>
         </nuxt-link>
         <button
           @click="contactShow = !contactShow"
@@ -57,7 +58,7 @@
           class="w3-bar-item w3-button w3-right w3-text-white w3-round-xxlarge w3-large light-gray-opacity"
         >
           <i class="fa fa-list-ul"></i>
-          <span class="w3-hide-large">Archive</span>
+          <span class="w3-hide-medium">Archive</span>
         </button>
         <form
           @submit.prevent="search()"
@@ -140,7 +141,7 @@ import Footer from '~/components/Footer.vue'
 import Contact from '~/components/Contact.vue'
 
 export default {
-  transition: 'page',
+  transition: 'bounce',
   components: {
     BlogArchive,
     BlogSmallNav,

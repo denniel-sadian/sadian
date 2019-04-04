@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="articles">
     <article class="w3-container w3-margin-top">
       <h2>
         <i class="fa fa-book"></i> Articles
@@ -8,33 +8,17 @@
         <div
           v-for="a in pagedArticles"
           :key="a.id"
-          class="w3-card-4 w3-margin-top w3-margin-bottom"
-          style="border-radius: 5px 5px 5px 5px"
+          class="animated fadeIn w3-col l4 m6 w3-container w3-margin-top w3-margin-bottom"
         >
-          <div v-if="a.image">
-            <img :src="a.image" class="w3-image entry-image" style="border-radius: 5px 5px 0 0">
-          </div>
           <div
-            class="w3-container preview-text w3-white w3-border-purple w3-bottombar"
-            style="border-radius: 0 0 5px 5px"
+            class="container w3-hover-shadow w3-border w3-border-purple w3-round-xlarge"
+            @click="$router.push({path: '/blog/article/'+a.id, query: {reload: 0}})"
           >
-            <p class="w3-large">
-              {{ a.headline }}
-              <br>
-              <span class="w3-small">
-                <i class="fa fa-calendar"></i>
-                {{ new Date(a.pub_date).toDateString() }}
-              </span>
-            </p>
-            <p class="shorter-content w3-border-bottom w3-border-purple">{{ a.preview_content }}</p>
-            <nuxt-link
-              :to="{path: '/blog/article/'+a.id, query: {reload: 0}}"
-              class="w3-button w3-purple w3-margin-bottom w3-right w3-round-xxlarge"
-            >
-              <b>
-                <i class="fa fa-eye"></i> Read more
-              </b>
-            </nuxt-link>
+            <img :src="a.image" :alt="a.headline" class="w3-image entry-image">
+            <div class="content">
+              <h4 class="heading">{{ a.headline }}</h4>
+              <p class="w3-small">{{ new Date(a.pub_date).toDateString() }}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -64,7 +48,7 @@ export default {
   data() {
     return {
       articles: [],
-      size: 5,
+      size: 9,
       pageCount: 0,
       foundNone: false
     }
@@ -115,25 +99,44 @@ export default {
 </script>
 
 <style scoped>
-.shorter-content {
-  max-height: 100px;
-  overflow: hidden;
-}
 .entry-image {
-  height: 300px;
+  min-height: 250px;
+  max-height: 250px;
   object-fit: cover;
   width: 100%;
 }
-@media (max-width: 425px) {
-  .entry-image {
-    height: 120px;
-  }
-  .shorter-content {
-    max-height: 50px;
-    line-height: 1.3;
-  }
-  .preview-text {
-    line-height: 1;
-  }
+.container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  background: linear-gradient(#9c27b0, #111111);
+}
+
+.container img {
+  vertical-align: middle;
+  transition: 0.3s;
+  width: 100%;
+  border-radius: 15px;
+}
+
+.container img:hover {
+  opacity: 0.5;
+}
+
+.container .content {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: #9c27b0;
+  color: #f1f1f1;
+  width: 100%;
+  padding: 5px;
+  transition: 0.3s;
+  border-radius: 0px 0px 14px 14px;
+}
+.container .content h4 {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 </style>

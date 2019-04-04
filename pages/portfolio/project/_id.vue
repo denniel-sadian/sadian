@@ -13,15 +13,15 @@
           class="w3-col m6 w3-padding w3-container w3-margin-top w3-white w3-border-purple w3-leftbar w3-round"
         >
           <dl>
-            <dt class="w3-large">Date created:</dt>
+            <dt class="w3-large w3-text-purple">Date created:</dt>
             <dd class="w3-margin-bottom">{{ project.date_created }}</dd>
-            <dt class="w3-large">Programming language/s:</dt>
+            <dt class="w3-large w3-text-purple">Programming language/s:</dt>
             <dd class="w3-margin-bottom">{{ project.language_used }}</dd>
-            <dt class="w3-large">Type:</dt>
+            <dt class="w3-large w3-text-purple">Type:</dt>
             <dd class="w3-margin-bottom">{{ project.category|title }}</dd>
-            <dt class="w3-large">Description:</dt>
+            <dt class="w3-large w3-text-purple">Description:</dt>
             <dd class="w3-margin-bottom">{{ project.description }}</dd>
-            <dt class="w3-large">Source code:</dt>
+            <dt class="w3-large w3-text-purple">Source code:</dt>
             <dd v-if="project.link">
               You can find the source code
               <a
@@ -69,11 +69,9 @@ export default {
   },
   methods: {
     getProject(id) {
-      axios
-        .get('https://denniel.herokuapp.com/api/projects/' + id)
-        .then(res => {
-          this.project = res.data
-        })
+      axios.get('https://denniel.herokuapp.com/api/projects/' + id).then(res => {
+        this.project = res.data
+      })
     }
   },
   created() {

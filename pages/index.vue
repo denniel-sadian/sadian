@@ -11,7 +11,7 @@
             to="/portfolio"
             class="light-gray-opacity w3-bar-item w3-round-xxlarge w3-button"
           >
-            <i class="fa fa-id-card"></i>
+            <i class="fa fa-coffee"></i>
             <span class="w3-hide-small">Portfolio</span>
           </nuxt-link>
           <nuxt-link to="/blog" class="light-gray-opacity w3-bar-item w3-round-xxlarge w3-button">

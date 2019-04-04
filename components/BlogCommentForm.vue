@@ -41,7 +41,7 @@
             <button
               type="reset"
               class="w3-button w3-round-xxlarge w3-red w3-right w3-margin-bottom"
-              @click="$emit('hide-comment')"
+              @click="$emit('hide-comment'); clear()"
             >
               <b>
                 <i class="fa fa-trash"></i> Cancel
@@ -76,9 +76,7 @@ export default {
       this.$emit('hide-comment')
       axios
         .post(
-          'https://denniel.herokuapp.com/blog/api/entries/' +
-            this.id +
-            '/comments/',
+          'https://denniel.herokuapp.com/blog/api/entries/' + this.id + '/comments/',
           {
             email: this.email,
             full_name: this.name,
@@ -91,8 +89,14 @@ export default {
               path: '/blog/article/' + this.id,
               query: { reload: this.$route.query.reload + 1 }
             })
+            this.clear()
           }
         })
+    },
+    clear() {
+      this.email = ''
+      this.name = ''
+      this.message = ''
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div v-if="projects.length" id="projects">
+  <div id="projects">
+    <div v-if="projects.length">
       <h3 class="w3-text-purple">
         Total of
         <span class="w3-tag w3-round-xxlarge w3-purple w3-circle">{{ projects.length }}</span>
@@ -171,11 +171,12 @@ export default {
   color: #f1f1f1;
   width: 100%;
   padding: 5px;
-  overflow: hidden;
   transition: 0.3s;
   border-radius: 0px 0px 14px 14px;
 }
 .container .content h4 {
+  text-overflow: ellipsis;
   white-space: nowrap;
+  overflow: hidden;
 }
 </style>

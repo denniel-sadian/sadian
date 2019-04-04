@@ -1,28 +1,28 @@
 <template>
-  <div v-show="actualNumber > 5">
+  <div v-show="actualNumber > 9">
     <div class="w3-container w3-center w3-margin-bottom">
       <span class="step-links">
-        <nuxt-link
+        <button
           v-if="pageNumber != 0"
-          :to="previousLink"
+          @click="goBack()"
           class="w3-button w3-purple w3-hover-pink w3-round-xxlarge"
         >
           <i class="fa fa-chevron-left"></i>￼
-        </nuxt-link>
+        </button>
         <span v-else class="w3-button w3-gray w3-hover-pink w3-round-xxlarge">
           <i class="fa fa-chevron-left"></i>￼
         </span>
 
         <span>{{ pageNumber+1 }} of {{ max + 1 }}</span>
 
-        <nuxt-link
+        <button
           v-if="pageNumber != max"
-          :to="nextLink"
+          @click="goNext()"
           style="text-decoration:none"
           class="w3-button w3-purple w3-hover-pink w3-round-xxlarge"
         >
           <i class="fa fa-chevron-right"></i>
-        </nuxt-link>
+        </button>
         <span v-else class="w3-button w3-gray w3-hover-pink w3-round-xxlarge">
           <i class="fa fa-chevron-right"></i>￼
         </span>
@@ -47,7 +47,7 @@ export default {
   },
   computed: {
     max() {
-      var m = this.actualNumber / 5
+      var m = this.actualNumber / 9
       return Math.floor(m)
     },
     previousLink() {
@@ -59,6 +59,16 @@ export default {
       var link = { query: { page: this.pageNumber + 1 } }
       if (this.$route.query.q) link.query.q = this.$route.query.q
       return link
+    }
+  },
+  methods: {
+    goBack() {
+      this.$scrollTo('#articles', 0, { force: true })
+      this.$router.push(this.previousLink)
+    },
+    goNext() {
+      this.$scrollTo('#articles', 0, { force: true })
+      this.$router.push(this.nextLink)
     }
   }
 }

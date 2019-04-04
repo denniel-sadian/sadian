@@ -44,7 +44,11 @@
                 style="width:100%; height:100px"
               ></textarea>
               <div class="w3-right w3-margin-top w3-margin-bottom">
-                <button type="reset" class="w3-button w3-round-xxlarge w3-padding w3-card-4 w3-red">
+                <button
+                  type="reset"
+                  @click="clear()"
+                  class="w3-button w3-round-xxlarge w3-padding w3-card-4 w3-red"
+                >
                   <b>
                     <i class="fa fa-trash"></i> Clear
                   </b>
@@ -85,10 +89,13 @@ export default {
         })
         .then(function() {
           alert('Thank you very much for leaving me a message!')
+          this.clear()
         })
         .catch(function() {
           alert('Sorry, I did something bad. Try again in a little bit!')
         })
+    },
+    clear() {
       this.name = ''
       this.email = ''
       this.message = ''
