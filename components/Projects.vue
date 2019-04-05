@@ -110,14 +110,12 @@ export default {
             path: '/portfolio/project/' + this.moddedProjects[0].id,
             query: { category: this.moddedProjects[0].category }
           })
-        }
+        } else this.foundNone = true
       } else if (c) {
         this.moddedProjects = this.projects.filter(function(p) {
           return p.category == c
         })
-      } else if (!c && !q) {
-        this.moddedProjects = this.projects
-      } else this.foundNone = true
+      } else this.moddedProjects = this.projects
     }
   },
   mounted() {

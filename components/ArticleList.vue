@@ -4,7 +4,7 @@
       <h2>
         <i class="fa fa-book"></i> Articles
       </h2>
-      <div v-if="articles.length">
+      <div v-if="moddedArticles.length">
         <div
           v-for="a in pagedArticles"
           :key="a.id"
@@ -37,17 +37,17 @@
 </template>
 
 <script>
-import axios from 'axios'
 import ArticlePaginator from '~/components/ArticlePaginator.vue'
 
 export default {
   layout: 'blog',
+  props: ['articles'],
   components: {
     ArticlePaginator
   },
   data() {
     return {
-      articles: [],
+      moddedArticles: [],
       size: 9,
       pageCount: 0,
       foundNone: false
@@ -64,35 +64,32 @@ export default {
     pagedArticles() {
       var start = this.page * this.size
       var end = start + this.size
-      return this.articles.slice(start, end)
+      return this.moddedArticles.slice(start, end)
     }
   },
   watch: {
     $route: function(r) {
-      this.articles = []
+      this.moddedArticles = []
       this.getArticles(r.query.q)
     }
   },
   methods: {
     getArticles(q) {
       var link = 'https://denniel.herokuapp.com/blog/api/entries/'
-      if (q) link += '?q=' + q
-      axios.get(link).then(res => {
-        this.articles = res.data
-        if (this.articles.length) {
-          this.pageCount = Math.ceil(this.articles.length / this.size)
-          this.foundNone = false
-          if (this.articles.length == 1) {
-            this.$router.push({
-              path: '/blog/article/' + this.articles[0].id,
-              query: { reload: 0 }
-            })
-          }
+      if (q) {
+        this.moddedArticles = this.articles.filter(function(a) {
+          return a.headline.toLowerCase().includes(q.toLowerCase())
+        })
+        if (this.moddedArticles.length == 1) {
+          this.$router.push({
+            path: '/blog/article/' + this.moddedArticles[0].id,
+            query: { reload: 0 }
+          })
         } else this.foundNone = true
-      })
+      } else this.moddedArticles = this.articles
     }
   },
-  created() {
+  mounted() {
     this.getArticles(this.$route.query.q)
   }
 }
