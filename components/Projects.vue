@@ -27,10 +27,6 @@
       <projects-paginator :actualNumber="moddedProjects.length" :pageNumber="page"/>
     </div>
 
-    <div v-else-if="!foundNone" class="w3-center w3-text-purple w3-padding w3-margin">
-      <i class="w3-large fa fa-spinner w3-spin"></i>
-    </div>
-
     <div v-else class="w3-center w3-text-red w3-padding w3-margin animated bounceIn">
       <h1>
         <i class="fa fa-exclamation-triangle"></i>
@@ -180,5 +176,10 @@ export default {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+@media (max-width: 425px) {
+  .w3-container {
+    padding: 0px !important;
+  }
 }
 </style>

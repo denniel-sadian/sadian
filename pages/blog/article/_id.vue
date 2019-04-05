@@ -84,21 +84,13 @@
       </nav>
 
       <header class="w3-container w3-text-white w3-center w3-border-purple w3-bottombar">
-        <div v-if="article.headline" class="animated fadeIn">
-          <h1 id="headline" class="animated fadeIn w3-padding">{{ article.headline }}</h1>
-          <p class="w3-large animated fadeIn">{{ new Date(article.pub_date).toDateString() }}</p>
-        </div>
-        <div v-else class="w3-center" style="font-size: 80px">
-          <i class="fa fa-spinner w3-spin"></i>
-        </div>
+        <h1 id="headline" class="animated fadeIn w3-padding">{{ article.headline }}</h1>
+        <p class="w3-large animated fadeIn">{{ new Date(article.pub_date).toDateString() }}</p>
       </header>
     </div>
 
     <div class="w3-container ar-cont w3-margin">
-      <div
-        v-if="article.headline"
-        class="animated fadeIn w3-content w3-margin-top w3-margin-bottom"
-      >
+      <div class="w3-content">
         <img
           :src="article.image"
           class="w3-image entry-image"
@@ -117,9 +109,6 @@
         </button>
         <p v-else class="w3-opacity w3-right">Commenting was turned off</p>
         <BlogComments/>
-      </div>
-      <div v-else class="w3-center" style="font-size: 80px">
-        <i class="fa fa-spinner w3-text-purple w3-spin"></i>
       </div>
     </div>
     <BlogCommentForm :show="commentShow" @hide-comment="commentShow = !commentShow"/>

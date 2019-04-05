@@ -22,16 +22,13 @@
           </div>
         </div>
       </div>
-      <div v-else-if="!foundNone" class="w3-center text-purple" style="font-size: 80px">
-        <i class="fa fa-spinner w3-text-black w3-spin"></i>
-      </div>
       <div v-else class="w3-center w3-text-red w3-padding w3-margin animated bounceIn">
         <h1>
           <i class="fa fa-exclamation-triangle"></i>
           <br>Sorry, I found none.
         </h1>
       </div>
-      <ArticlePaginator :actualNumber="articles.length" :pageNumber="page"/>
+      <ArticlePaginator :actualNumber="moddedArticles.length" :pageNumber="page"/>
     </article>
   </div>
 </template>
@@ -135,5 +132,11 @@ export default {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+@media (max-width: 425px) {
+  .w3-container {
+    padding: 0px !important;
+  }
 }
 </style>

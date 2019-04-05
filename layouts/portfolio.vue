@@ -265,7 +265,7 @@ footer {
 }
 @media (max-width: 600px) {
   #sidebar_small {
-    width: 85% !important;
+    width: 100% !important;
   }
 }
 @media (max-width: 425px) {

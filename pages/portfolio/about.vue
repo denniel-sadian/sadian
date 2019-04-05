@@ -18,35 +18,25 @@
       <br>
       <br>
       <h1 class="w3-margin-top w3-center">Denniel Luis Saway Sadian</h1>
-      <div v-if="about.length">
-        <p v-for="p in about" :key="p.id" v-html="p.text"></p>
-      </div>
-      <div v-else class="w3-center w3-text-purple" style="font-size: 80px">
-        <i class="fa fa-spinner w3-text-black w3-spin"></i>
-      </div>
+      <div v-for="p in about" :key="p.id" v-html="p.text"></div>
       <h1 class="w3-center w3-text-purple">
         <i class="fa fa-calendar"></i> My Life Events
       </h1>
-      <div v-if="timelines.length">
-        <div v-for="t in timelines" :key="t.id" class="timeline">
-          <div class="timeline-container" :class="{'left': t.left, 'right': !t.left}">
-            <div class="timeline-content w3-border w3-border-purple w3-card-4">
-              <div v-if="t.image" class="image-holder">
-                <img :src="t.image" class="w3-image" style="border-radius: 8px 8px 0px 0px">
-              </div>
-              <h2 class="w3-center w3-text-purple">
-                <i v-if="!t.image" class="fa fa-calendar"></i>
-                <br>
-                {{ new Date(t.date).getFullYear() }}
-              </h2>
-              <h5 class="w3-center w3-text-purple">{{ t.title }}</h5>
-              <p>{{ t.desc }}</p>
+      <div v-for="t in timelines" :key="t.date" class="timeline">
+        <div class="timeline-container" :class="{'left': t.left, 'right': !t.left}">
+          <div class="timeline-content w3-border w3-border-purple w3-card-4">
+            <div v-if="t.image" class="image-holder">
+              <img :src="t.image" class="w3-image" style="border-radius: 8px 8px 0px 0px">
             </div>
+            <h2 class="w3-center w3-text-purple">
+              <i v-if="!t.image" class="fa fa-calendar"></i>
+              <br>
+              {{ new Date(t.date).getFullYear() }}
+            </h2>
+            <h5 class="w3-center w3-text-purple">{{ t.title }}</h5>
+            <p>{{ t.desc }}</p>
           </div>
         </div>
-      </div>
-      <div v-else class="w3-center text-purple" style="font-size: 80px">
-        <i class="fa fa-spinner w3-text-black w3-spin"></i>
       </div>
     </div>
   </div>
@@ -57,16 +47,15 @@ import axios from 'axios'
 
 export default {
   layout: 'portfolio',
-  data() {
-    return { about: [], timelines: [] }
-  },
-  created() {
-    axios.get('https://denniel.herokuapp.com/api/about/').then(res => {
-      this.about = res.data
+  async asyncData() {
+    var a, t
+    await axios.get('https://denniel.herokuapp.com/api/about/').then(res => {
+      a = res.data
     })
-    axios.get('https://denniel.herokuapp.com/api/timeline/').then(res => {
-      this.timelines = res.data
+    await axios.get('https://denniel.herokuapp.com/api/timeline/').then(res => {
+      t = res.data
     })
+    return { about: a, timelines: t }
   },
   head() {
     return {
@@ -76,6 +65,11 @@ export default {
           hid: 'description',
           name: 'description',
           content: 'He is a programmamer who likes to code, of course.'
+        },
+        {
+          hid: 'preview_img',
+          property: 'og:image',
+          content: 'https://sadian.herokuapp.com/me.jpg'
         }
       ]
     }
