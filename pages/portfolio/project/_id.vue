@@ -18,7 +18,7 @@
             <dt class="w3-large w3-text-purple">Programming language/s:</dt>
             <dd class="w3-margin-bottom">{{ project.language_used }}</dd>
             <dt class="w3-large w3-text-purple">Type:</dt>
-            <dd class="w3-margin-bottom">{{ project.category|title }}</dd>
+            <dd class="w3-margin-bottom">{{ project.category }}</dd>
             <dt class="w3-large w3-text-purple">Description:</dt>
             <dd class="w3-margin-bottom">{{ project.description }}</dd>
             <dt class="w3-large w3-text-purple">Source code:</dt>
@@ -54,17 +54,6 @@ export default {
   data() {
     return { project: {} }
   },
-  computed: {
-    title() {
-      return this.project.name + " | Denniel's Portfolio"
-    },
-    description() {
-      return this.project.description
-    },
-    previewImg() {
-      return this.project.image
-    }
-  },
   watch: {
     $route: function(r) {
       this.getProject(r.params.id)
@@ -79,22 +68,25 @@ export default {
         })
     }
   },
-  created() {
-    this.getProject(this.$route.params.id)
+  async asyncData({ params }) {
+    const { data } = await axios.get(
+      `https://denniel.herokuapp.com/api/projects/${params.id}`
+    )
+    return { project: data }
   },
   head() {
     return {
-      title: this.title,
+      title: `${this.project.name} | Denniel Sadian`,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: this.description
+          content: this.project.description
         },
         {
           hid: 'preview_img',
           property: 'og:image',
-          content: this.previewImg
+          content: this.project.image
         }
       ]
     }

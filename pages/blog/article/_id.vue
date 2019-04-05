@@ -162,28 +162,29 @@ export default {
     }
   },
   computed: {
-    title() {
-      return this.article.headline + ' by Denniel Sadian'
+    art() {
+      return this.article
     },
-    description() {
-      return this.article.preview_content
-    },
-    previewImg() {
-      return this.article.image
+    id() {
+      return this.$route.params.id
     }
   },
   watch: {
     $route: function(r) {
       this.getArticle(r.params.id)
+      this.getComments(r.params.id)
     }
   },
   methods: {
-    getArticle(id) {
-      var link = 'https://denniel.herokuapp.com/blog/api/entries/' + id
-      axios.get(link).then(res => {
+    async getArticle(id) {
+      var link = `https://denniel.herokuapp.com/blog/api/entries/${id}`
+      await axios.get(link).then(res => {
         this.article = res.data
       })
-      axios.get(link + '/comments').then(res => {
+    },
+    async getComments(id) {
+      var link = `https://denniel.herokuapp.com/blog/api/entries/${id}/comments`
+      await axios.get(link).then(res => {
         this.comments = res.data
       })
     },
@@ -191,22 +192,25 @@ export default {
       this.$router.push({ name: 'blog', query: { q: this.q } })
     }
   },
-  created() {
-    this.getArticle(this.$route.params.id)
+  async asyncData({ params }) {
+    const { data } = await axios.get(
+      `https://denniel.herokuapp.com/blog/api/entries/${params.id}`
+    )
+    return { article: data }
   },
   head() {
     return {
-      title: this.title,
+      title: this.article.headline,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: this.description
+          content: this.article.preview_content
         },
         {
           hid: 'preview_img',
           property: 'og:image',
-          content: this.previewImg
+          content: this.article.image
         }
       ]
     }
