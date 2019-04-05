@@ -1,23 +1,23 @@
 <template>
   <div>
-    <Projects/>
+    <Projects :projects="projects"/>
   </div>
 </template>
 
 <script>
 import Projects from '~/components/Projects.vue'
+import axios from 'axios'
 
 export default {
   layout: 'portfolio',
   components: {
     Projects
   },
-  scrollBehavior(to, from, savedPosition) {
-    if (to.hash) {
-      return { selector: to.hash }
-    } else {
-      return { x: 0, y: 0 }
-    }
+  async asyncData() {
+    const { data } = await axios.get(
+      `https://denniel.herokuapp.com/api/projects/`
+    )
+    return { projects: data }
   }
 }
 </script>

@@ -1,9 +1,11 @@
 <template>
   <div id="projects">
-    <div v-if="projects.length">
+    <div v-if="moddedProjects.length">
       <h3 class="w3-text-purple">
         Total of
-        <span class="w3-tag w3-round-xxlarge w3-purple w3-circle">{{ projects.length }}</span>
+        <span
+          class="w3-tag w3-round-xxlarge w3-purple w3-circle"
+        >{{ moddedProjects.length }}</span>
       </h3>
       <div
         v-for="p in pagedProjects"
@@ -22,7 +24,7 @@
           </div>
         </div>
       </div>
-      <projects-paginator :actualNumber="projects.length" :pageNumber="page"/>
+      <projects-paginator :actualNumber="moddedProjects.length" :pageNumber="page"/>
     </div>
 
     <div v-else-if="!foundNone" class="w3-center w3-text-purple w3-padding w3-margin">
@@ -39,7 +41,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import ProjectsPaginator from '~/components/ProjectsPaginator.vue'
 
 export default {
@@ -47,9 +48,10 @@ export default {
   components: {
     ProjectsPaginator
   },
+  props: ['projects'],
   data() {
     return {
-      projects: [],
+      moddedProjects: [],
       size: 12,
       pageCount: 0,
       foundNone: false
@@ -68,7 +70,7 @@ export default {
     description() {
       if (this.$route.query.category) {
         return (
-          this.projects.length +
+          this.moddedProjects.length +
           ' ' +
           this.$route.query.category +
           's of Denniel Luis Sadian'
@@ -87,36 +89,38 @@ export default {
     pagedProjects() {
       var start = this.page * this.size
       var end = start + this.size
-      return this.projects.slice(start, end)
+      return this.moddedProjects.slice(start, end)
     }
   },
   watch: {
     $route: function(r) {
-      this.projects = []
+      this.moddedProjects = []
       this.getProjects(r.query.category, r.query.q)
     }
   },
   methods: {
     getProjects(c, q) {
       var link = 'https://denniel.herokuapp.com/api/projects/'
-      if (q) link += '?q=' + q
-      else if (c) link += '?category=' + c
-      axios.get(link).then(res => {
-        this.projects = res.data
-        if (this.projects.length) {
-          this.pageCount = Math.ceil(this.projects.length / this.size)
-          this.foundNone = false
-          if (this.projects.length == 1) {
-            this.$router.push({
-              path: '/portfolio/project/' + this.projects[0].id,
-              query: { category: this.projects[0].category }
-            })
-          }
-        } else this.foundNone = true
-      })
+      if (q) {
+        this.moddedProjects = this.projects.filter(function(p) {
+          return p.name.toLowerCase().includes(q.toLowerCase())
+        })
+        if (this.moddedProjects.length == 1) {
+          this.$router.push({
+            path: '/portfolio/project/' + this.moddedProjects[0].id,
+            query: { category: this.moddedProjects[0].category }
+          })
+        }
+      } else if (c) {
+        this.moddedProjects = this.projects.filter(function(p) {
+          return p.category == c
+        })
+      } else if (!c && !q) {
+        this.moddedProjects = this.projects
+      } else this.foundNone = true
     }
   },
-  created() {
+  mounted() {
     this.getProjects(this.$route.query.category, this.$route.query.q)
   },
   head() {
