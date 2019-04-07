@@ -144,12 +144,12 @@ export default {
         },
         {
           hid: 'twitter-title',
-          property: 'twitter:title',
+          name: 'twitter:title',
           content: 'Denniel Luis Saway Sadian'
         },
         {
           hid: 'twitter-desc',
-          property: 'twitter:description',
+          name: 'twitter:description',
           content: 'Greetings! Welcome to my website!'
         }
       ]

@@ -198,12 +198,12 @@ export default {
         },
         {
           hid: 'twitter-title',
-          property: 'twitter:title',
+          name: 'twitter:title',
           content: this.article.headline
         },
         {
           hid: 'twitter-desc',
-          property: 'twitter:description',
+          name: 'twitter:description',
           content: this.article.preview_content
         },
         {
@@ -213,7 +213,7 @@ export default {
         },
         {
           hid: 'twitter-preview_img',
-          property: 'twitter:image',
+          name: 'twitter:image',
           content: this.article.image
         }
       ]

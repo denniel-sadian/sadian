@@ -128,12 +128,12 @@ export default {
         },
         {
           hid: 'twitter-title',
-          property: 'twitter:title',
+          name: 'twitter:title',
           content: this.title
         },
         {
           hid: 'twitter-desc',
-          property: 'twitter:description',
+          name: 'twitter:description',
           content: this.description
         }
       ]

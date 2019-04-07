@@ -85,12 +85,12 @@ export default {
         },
         {
           hid: 'twitter-title',
-          property: 'twitter:title',
+          name: 'twitter:title',
           content: `${this.project.name} | Denniel Sadian`
         },
         {
           hid: 'twitter-desc',
-          property: 'twitter:description',
+          name: 'twitter:description',
           content: this.project.description
         },
         {
@@ -100,7 +100,7 @@ export default {
         },
         {
           hid: 'twitter-preview_img',
-          property: 'twitter:image',
+          name: 'twitter:image',
           content: this.project.image
         }
       ]

@@ -28,12 +28,12 @@ export default {
         },
         {
           hid: 'twitter-title',
-          property: 'twitter:title',
+          name: 'twitter:title',
           content: 'Code Philosophy'
         },
         {
           hid: 'twitter-desc',
-          property: 'twitter:description',
+          name: 'twitter:description',
           content: 'Welcome to the blog of Denniel Luis Sadian'
         }
       ]

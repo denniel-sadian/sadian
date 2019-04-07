@@ -73,17 +73,17 @@ export default {
         },
         {
           hid: 'twitter-preview_img',
-          property: 'twitter:image',
+          name: 'twitter:image',
           content: 'https://sadian.herokuapp.com/me.jpg'
         },
         {
           hid: 'twitter-title',
-          property: 'twitter:title',
+          name: 'twitter:title',
           content: 'Who is Denniel Luis Sadian'
         },
         {
           hid: 'twitter-desc',
-          property: 'twitter:description',
+          name: 'twitter:description',
           content: 'He is a programmer who likes to code, of course.'
         }
       ]
