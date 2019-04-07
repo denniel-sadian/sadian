@@ -197,6 +197,16 @@ export default {
           content: this.article.preview_content
         },
         {
+          hid: 'og-title',
+          property: 'og:title',
+          content: this.article.headline
+        },
+        {
+          hid: 'og-description',
+          property: 'og:description',
+          content: this.article.preview_content
+        },
+        {
           hid: 'preview_img',
           property: 'og:image',
           content: this.article.image

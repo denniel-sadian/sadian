@@ -84,6 +84,16 @@ export default {
           content: this.project.description
         },
         {
+          hid: 'og-title',
+          property: 'og:title',
+          content: `${this.project.name} | Denniel Sadian`
+        },
+        {
+          hid: 'og-description',
+          property: 'og:description',
+          content: this.project.description
+        },
+        {
           hid: 'preview_img',
           property: 'og:image',
           content: this.project.image

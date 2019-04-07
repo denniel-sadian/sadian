@@ -25,6 +25,16 @@ export default {
           hid: 'description',
           name: 'description',
           content: 'Welcome to the blog of Denniel Luis Sadian!'
+        },
+        {
+          hid: 'og-title',
+          property: 'og:title',
+          content: 'Code Philosophy'
+        },
+        {
+          hid: 'og-description',
+          property: 'og:description',
+          content: 'Welcome to the blog of Denniel Luis Sadian'
         }
       ]
     }

@@ -135,11 +135,21 @@ export default {
   },
   head() {
     return {
-      title: 'Denniel Luis S. Sadian',
+      title: 'Denniel Luis Saway Sadian',
       meta: [
         {
           hid: 'description',
           name: 'description',
+          content: 'Greetings! Welcome to my website!'
+        },
+        {
+          hid: 'og-title',
+          property: 'og:title',
+          content: 'Denniel Luis Saway Sadian'
+        },
+        {
+          hid: 'og-description',
+          property: 'og:description',
           content: 'Greetings! Welcome to my website!'
         }
       ]

@@ -59,7 +59,7 @@ export default {
   },
   head() {
     return {
-      title: 'Who is Denniel Luis Saway Sadian',
+      title: 'Who is Denniel Luis Sadian',
       meta: [
         {
           hid: 'description',
@@ -70,6 +70,16 @@ export default {
           hid: 'preview_img',
           property: 'og:image',
           content: 'https://sadian.herokuapp.com/me.jpg'
+        },
+        {
+          hid: 'og-title',
+          property: 'og:title',
+          content: 'Who is Denniel Luis Sadian'
+        },
+        {
+          hid: 'og-description',
+          property: 'og:description',
+          content: 'He is a programmer who likes to code, of course.'
         }
       ]
     }
