@@ -65,14 +65,9 @@ export default {
     },
     description() {
       if (this.$route.query.category) {
-        return (
-          this.moddedProjects.length +
-          ' ' +
-          this.$route.query.category +
-          's of Denniel Luis Sadian'
-        )
+        return `These are the ${this.$route.query.category}s of Denniel.`
       } else {
-        return "Welcome to Denniel's Portfolio!"
+        return `Welcome to my portfolio!`
       }
     },
     page() {
