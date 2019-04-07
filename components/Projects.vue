@@ -67,7 +67,7 @@ export default {
       if (this.$route.query.category) {
         return `These are the ${this.$route.query.category}s of Denniel.`
       } else {
-        return `Welcome to my portfolio!`
+        return `He has created ${this.projects.length} applications.`
       }
     },
     page() {
