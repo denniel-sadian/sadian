@@ -127,13 +127,13 @@ export default {
           content: this.description
         },
         {
-          hid: 'og-title',
-          property: 'og:title',
+          hid: 'twitter-title',
+          property: 'twitter:title',
           content: this.title
         },
         {
-          hid: 'og-description',
-          property: 'og:description',
+          hid: 'twitter-desc',
+          property: 'twitter:description',
           content: this.description
         }
       ]

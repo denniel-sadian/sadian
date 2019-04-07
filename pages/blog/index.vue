@@ -27,13 +27,13 @@ export default {
           content: 'Welcome to the blog of Denniel Luis Sadian!'
         },
         {
-          hid: 'og-title',
-          property: 'og:title',
+          hid: 'twitter-title',
+          property: 'twitter:title',
           content: 'Code Philosophy'
         },
         {
-          hid: 'og-description',
-          property: 'og:description',
+          hid: 'twitter-desc',
+          property: 'twitter:description',
           content: 'Welcome to the blog of Denniel Luis Sadian'
         }
       ]

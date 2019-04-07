@@ -143,13 +143,13 @@ export default {
           content: 'Greetings! Welcome to my website!'
         },
         {
-          hid: 'og-title',
-          property: 'og:title',
+          hid: 'twitter-title',
+          property: 'twitter:title',
           content: 'Denniel Luis Saway Sadian'
         },
         {
-          hid: 'og-description',
-          property: 'og:description',
+          hid: 'twitter-desc',
+          property: 'twitter:description',
           content: 'Greetings! Welcome to my website!'
         }
       ]

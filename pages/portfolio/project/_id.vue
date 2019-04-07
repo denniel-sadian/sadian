@@ -84,18 +84,23 @@ export default {
           content: this.project.description
         },
         {
-          hid: 'og-title',
-          property: 'og:title',
+          hid: 'twitter-title',
+          property: 'twitter:title',
           content: `${this.project.name} | Denniel Sadian`
         },
         {
-          hid: 'og-description',
-          property: 'og:description',
+          hid: 'twitter-desc',
+          property: 'twitter:description',
           content: this.project.description
         },
         {
           hid: 'preview_img',
           property: 'og:image',
+          content: this.project.image
+        },
+        {
+          hid: 'twitter-preview_img',
+          property: 'twitter:image',
           content: this.project.image
         }
       ]

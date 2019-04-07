@@ -197,18 +197,23 @@ export default {
           content: this.article.preview_content
         },
         {
-          hid: 'og-title',
-          property: 'og:title',
+          hid: 'twitter-title',
+          property: 'twitter:title',
           content: this.article.headline
         },
         {
-          hid: 'og-description',
-          property: 'og:description',
+          hid: 'twitter-desc',
+          property: 'twitter:description',
           content: this.article.preview_content
         },
         {
           hid: 'preview_img',
           property: 'og:image',
+          content: this.article.image
+        },
+        {
+          hid: 'twitter-preview_img',
+          property: 'twitter:image',
           content: this.article.image
         }
       ]
