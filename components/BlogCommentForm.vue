@@ -76,7 +76,9 @@ export default {
       this.$emit('hide-comment')
       axios
         .post(
-          'https://denniel.herokuapp.com/blog/api/entries/' + this.id + '/comments/',
+          'https://denniel.herokuapp.com/blog/api/entries/' +
+            this.id +
+            '/comments/',
           {
             email: this.email,
             full_name: this.name,
