@@ -37,7 +37,7 @@
           @click="contactShow = !contactShow; navShow = !navShow"
         >
           <b>
-            <i class="fa fa-send"></i> Contact
+            <i class="fa fa-envelope"></i> Contact
           </b>
         </button>
         <nuxt-link
@@ -98,7 +98,7 @@
             @click="contactShow = !contactShow; navShow = !navShow"
           >
             <b>
-              <i class="fa fa-send"></i> Contact
+              <i class="fa fa-envelope"></i> Contact
             </b>
           </button>
           <button
