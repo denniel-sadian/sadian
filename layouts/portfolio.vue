@@ -48,11 +48,6 @@
             <i class="fa fa-info-circle"></i> About Me
           </b>
         </nuxt-link>
-        <nuxt-link to="/admin" class="w3-bar-item w3-button w3-large w3-round-xxlarge">
-          <b>
-            <i class="fa fa-gear"></i> Manage
-          </b>
-        </nuxt-link>
       </div>
       <transition-group
         name="small-nav"
@@ -114,11 +109,6 @@
               <i class="fa fa-info-circle"></i> About Me
             </b>
           </button>
-          <nuxt-link to="/admin" class="w3-bar-item w3-button w3-large w3-round-xxlarge">
-            <b>
-              <i class="fa fa-gear"></i> Manage
-            </b>
-          </nuxt-link>
         </div>
       </transition-group>
 
