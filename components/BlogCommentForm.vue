@@ -35,7 +35,7 @@
               class="w3-button w3-round-xxlarge w3-purple w3-right w3-margin-bottom w3-margin-left"
             >
               <b>
-                <i class="fa fa-send"></i> Submit
+                <i class="fab fa-telegram-plane"></i> Submit
               </b>
             </button>
             <button
