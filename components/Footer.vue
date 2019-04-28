@@ -109,6 +109,9 @@ export default {
     },
     year() {
       return new Date().getFullYear()
+    },
+    shareLink() {
+      return `https://sadian.herokuapp.com${this.$route.path}`
     }
   },
   methods: {
