@@ -57,6 +57,7 @@
           id="sidebar_small"
           class="w3-sidebar w3-text-white w3-bar-block w3-card-4 w3-hide-large"
           key="1"
+          style="z-index: 2"
         >
           <button class="w3-button w3-hide-large w3-large" @click="navShow = !navShow">
             <i class="fa fa-times"></i>
