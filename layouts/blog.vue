@@ -45,7 +45,7 @@
             <i class="fa fa-coffee"></i> Portfolio
           </nuxt-link>
           <button class="w3-bar-item w3-button" @click="contactShow = !contactShow">
-            <i class="fa fa-send"></i> Contact
+            <i class="fa fa-envelope"></i> Contact
           </button>
           <nuxt-link to="/portfolio/about" class="w3-bar-item w3-button">
             <i class="fa fa-info-circle"></i> About
