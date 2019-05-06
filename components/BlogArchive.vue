@@ -12,7 +12,7 @@
         class="w3-sidebar w3-bar-block w3-display-topright w3-text-white"
       >
         <button class="w3-button w3-right w3-large" @click="$emit('hide-archive')">
-          <i class="fa fa-close"></i>
+          <i class="fa fa-times"></i>
         </button>
         <h3 class="w3-bar-item w3-border-purple w3-bottombar">
           <i class="fa fa-archive"></i> Blog Archive

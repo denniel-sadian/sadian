@@ -12,7 +12,7 @@
         class="w3-sidebar w3-bar-block w3-card-4 w3-hide-large w3-large w3-text-white"
       >
         <button class="w3-button w3-hide-large w3-large" @click="$emit('hide-small-nav')">
-          <i class="fa fa-close"></i>
+          <i class="fa fa-times"></i>
         </button>
         <form
           @submit.prevent="search(); $emit('hide-small-nav')"
@@ -35,29 +35,19 @@
           </button>
         </form>
         <nuxt-link to="/" class="w3-bar-item w3-button">
-          <b>
-            <i class="fa fa-home"></i> Home
-          </b>
+          <i class="fa fa-home"></i> Home
         </nuxt-link>
         <nuxt-link to="/portfolio" class="w3-bar-item w3-button">
-          <b>
-            <i class="fa fa-coffee"></i> Portfolio
-          </b>
+          <i class="fa fa-coffee"></i> Portfolio
         </nuxt-link>
         <nuxt-link to="/blog" class="w3-bar-item w3-button">
-          <b>
-            <i class="fa fa-book"></i> Blog
-          </b>
+          <i class="fa fa-book"></i> Blog
         </nuxt-link>
         <button class="w3-bar-item w3-button" @click="$emit('show-contact')">
-          <b>
-            <i class="fa fa-send"></i> Contact
-          </b>
+          <i class="fa fa-envelope"></i> Contact
         </button>
         <nuxt-link :to="{name: 'portfolio-about'}" class="w3-bar-item w3-button">
-          <b>
-            <i class="fa fa-info-circle"></i> About Me
-          </b>
+          <i class="fa fa-info-circle"></i> About Me
         </nuxt-link>
       </nav>
     </transition-group>

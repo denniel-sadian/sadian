@@ -36,6 +36,11 @@
             >{{ cat }}s</nuxt-link>
             <nuxt-link
               to="/portfolio"
+              v-if="$route.name === 'portfolio-project-id'"
+              class="w3-bar-item w3-button w3-gray w3-round-xxlarge"
+            >{{ $route.query.category }}s</nuxt-link>
+            <nuxt-link
+              to="/portfolio"
               v-if="category"
               class="w3-bar-item w3-button w3-light-gray w3-round-xxlarge"
             >All</nuxt-link>

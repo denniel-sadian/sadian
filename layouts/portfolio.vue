@@ -23,31 +23,29 @@
           <h3>Denniel Luis Saway Sadian</h3>
         </div>
         <nuxt-link to="/" class="w3-bar-item w3-button w3-large w3-round-xxlarge">
-          <b>
-            <i class="fa fa-home"></i> Home
-          </b>
+          <i class="fa fa-home"></i> Home
         </nuxt-link>
         <nuxt-link to="/blog" class="w3-bar-item w3-button w3-large w3-round-xxlarge">
-          <b>
-            <i class="fa fa-book"></i> Blog
-          </b>
+          <i class="fa fa-book"></i> Blog
         </nuxt-link>
         <button
           class="w3-bar-item w3-button w3-large w3-round-xxlarge"
           @click="contactShow = !contactShow; navShow = !navShow"
         >
-          <b>
-            <i class="fa fa-envelope"></i> Contact
-          </b>
+          <i class="fa fa-envelope"></i> Contact
         </button>
         <nuxt-link
           :to="{name: 'portfolio-about'}"
           class="w3-bar-item w3-button w3-large w3-round-xxlarge"
         >
-          <b>
-            <i class="fa fa-info-circle"></i> About Me
-          </b>
+          <i class="fa fa-info-circle"></i> About Me
         </nuxt-link>
+        <a
+          href="https://denniel.herokuapp.com/admin/"
+          class="w3-bar-item w3-button w3-large w3-round-xxlarge"
+        >
+          <i class="fa fa-cog"></i> Manage
+        </a>
       </div>
       <transition-group
         name="small-nav"
@@ -61,7 +59,7 @@
           key="1"
         >
           <button class="w3-button w3-hide-large w3-large" @click="navShow = !navShow">
-            <i class="fa fa-close"></i>
+            <i class="fa fa-times"></i>
           </button>
           <form
             @submit.prevent="search(); navShow = !navShow"
@@ -84,31 +82,29 @@
             </button>
           </form>
           <nuxt-link to="/" class="w3-bar-item w3-button w3-large w3-round-xxlarge">
-            <b>
-              <i class="fa fa-home"></i> Home
-            </b>
+            <i class="fa fa-home"></i> Home
           </nuxt-link>
           <nuxt-link to="/blog" class="w3-bar-item w3-button w3-large w3-round-xxlarge">
-            <b>
-              <i class="fa fa-book"></i> Blog
-            </b>
+            <i class="fa fa-book"></i> Blog
           </nuxt-link>
           <button
             class="w3-bar-item w3-button w3-large w3-round-xxlarge"
             @click="contactShow = !contactShow; navShow = !navShow"
           >
-            <b>
-              <i class="fa fa-envelope"></i> Contact
-            </b>
+            <i class="fa fa-envelope"></i> Contact
           </button>
           <button
             @click="navShow = !navShow; $router.push({name: 'portfolio-about'})"
             class="w3-bar-item w3-button w3-large w3-round-xxlarge"
           >
-            <b>
-              <i class="fa fa-info-circle"></i> About Me
-            </b>
+            <i class="fa fa-info-circle"></i> About Me
           </button>
+          <a
+            href="https://denniel.herokuapp.com/admin/"
+            class="w3-bar-item w3-button w3-large w3-round-xxlarge"
+          >
+            <i class="fa fa-cog"></i> Manage
+          </a>
         </div>
       </transition-group>
 

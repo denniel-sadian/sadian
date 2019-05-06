@@ -133,7 +133,7 @@ export default {
       else if (sm === 'reddit')
         return `https://reddit.com/submit?url=${this.shareLink}`
       else if (sm === 'mail')
-        return `mailto:?subject=Survey&body=${this.shareLink}`
+        return `mailto:?subject=Contact&body=${this.shareLink}`
     },
     subscribe() {
       axios
