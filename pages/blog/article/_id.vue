@@ -29,7 +29,6 @@
         <nuxt-link to="/" class="w3-bar-item light-gray-opacity w3-round-xxlarge w3-button">
           <span class="w3-hide-small">
             <i class="fa fa-home"></i>
-            <span class="w3-hide-medium">Home</span>
           </span>
         </nuxt-link>
         <nuxt-link
@@ -37,21 +36,18 @@
           class="light-gray-opacity w3-bar-item w3-round-xxlarge w3-button"
         >
           <i class="fa fa-coffee"></i>
-          <span class="w3-hide-medium">Portfolio</span>
         </nuxt-link>
         <button
           @click="contactShow = !contactShow"
           class="light-gray-opacity w3-bar-item w3-round-xxlarge w3-button"
         >
           <i class="fa fa-envelope"></i>
-          <span class="w3-hide-small w3-hide-medium">Contact</span>
         </button>
         <nuxt-link
           :to="{name: 'portfolio-about'}"
           class="light-gray-opacity w3-bar-item w3-round-xxlarge w3-button"
         >
           <i class="fa fa-info-circle"></i>
-          <span class="w3-hide-small w3-hide-medium">About</span>
         </nuxt-link>
         <button
           @click="navShow = false; archiveShow = !archiveShow"

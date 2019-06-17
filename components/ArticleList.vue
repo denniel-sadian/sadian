@@ -15,7 +15,7 @@
             @click="$router.push({path: '/blog/article/'+a.id, query: {reload: 0}})"
           >
             <img :src="a.image" :alt="a.headline" class="w3-image entry-image">
-            <div class="content">
+            <div class="content" :title="a.headline">
               <h4 class="heading">{{ a.headline }}</h4>
               <p class="w3-small">{{ new Date(a.pub_date).toDateString() }}</p>
             </div>

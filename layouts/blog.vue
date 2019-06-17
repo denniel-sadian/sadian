@@ -39,16 +39,20 @@
       <nav id="largeNav" class="w3-bar w3-black w3-large w3-border-gray w3-bottombar w3-hide-small">
         <div class="w3-content">
           <nuxt-link to="/" class="w3-bar-item w3-button">
-            <i class="fa fa-home"></i> Home
+            <i class="fa fa-home"></i>
+            <span class="w3-hide-medium">Home</span>
           </nuxt-link>
           <nuxt-link to="/portfolio" class="w3-bar-item w3-button">
-            <i class="fa fa-coffee"></i> Portfolio
+            <i class="fa fa-coffee"></i>
+            <span class="w3-hide-medium">Portfolio</span>
           </nuxt-link>
           <button class="w3-bar-item w3-button" @click="contactShow = !contactShow">
-            <i class="fa fa-envelope"></i> Contact
+            <i class="fa fa-envelope"></i>
+            <span class="w3-hide-medium">Contact</span>
           </button>
           <nuxt-link to="/portfolio/about" class="w3-bar-item w3-button">
-            <i class="fa fa-info-circle"></i> About
+            <i class="fa fa-info-circle"></i>
+            <span class="w3-hide-medium">About</span>
           </nuxt-link>
           <form
             @submit.prevent="search()"

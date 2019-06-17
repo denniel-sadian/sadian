@@ -18,7 +18,7 @@
             $router.push({path: '/portfolio/project/'+p.id, query: {category:p.category}})"
         >
           <img :src="p.image" :alt="p.name" class="w3-image proj-image">
-          <div class="content">
+          <div class="content" :title="p.name">
             <h4>{{ p.name }}</h4>
             <p class="w3-small">{{ new Date(p.date_created).toDateString() }}</p>
           </div>
