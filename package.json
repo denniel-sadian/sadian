@@ -4,6 +4,10 @@
   "description": "My quite nice personal website.",
   "author": "Denniel Luis Sadian",
   "private": true,
+  "engines": {
+    "node": "10.x",
+    "npm": "6.x"
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
