@@ -9,7 +9,7 @@
           <img
             key="large_face"
             v-if="$route.name != 'portfolio-about'"
-            src="~/assets/images/me.jpg"
+            :src="photo"
             class="face animated fadeIn w3-image w3-circle w3-margin-top w3-card-4"
             width="150"
           >
@@ -149,7 +149,7 @@
             <img
               key="small_face"
               v-if="$route.name != 'portfolio-about'"
-              src="~/assets/images/me.jpg"
+              :src="photo"
               style="min-height:80px!important; max-height:80px!important"
               width="80"
               class="animated bounceIn face w3-image w3-circle w3-card"
@@ -178,6 +178,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import Footer from '~/components/Footer.vue'
 import Categories from '~/components/Categories.vue'
 import Contact from '~/components/Contact.vue'
@@ -193,6 +194,11 @@ export default {
       navShow: false,
       contactShow: false,
       q: ''
+    }
+  },
+  computed: {
+    photo() {
+      return this.$store.getters.photo
     }
   },
   methods: {

@@ -5,7 +5,7 @@
       class="w3-container w3-margin-top w3-center w3-border-purple w3-bottombar"
     >
       <img
-        src="~/assets/images/me.jpg"
+        :src="photo"
         class="face w3-circle w3-image w3-card-4"
         width="150"
         style="border:6px solid #9c27b0; position:relative; top: 70px;"
@@ -55,7 +55,15 @@ export default {
     await axios.get('https://denniel.herokuapp.com/api/timeline/').then(res => {
       t = res.data
     })
-    return { about: a, timelines: t }
+    return { 
+      about: a,
+      timelines: t
+    }
+  },
+  computed: {
+    photo() {
+      return this.$store.getters.photo
+    }
   },
   head() {
     return {
@@ -69,12 +77,12 @@ export default {
         {
           hid: 'preview_img',
           property: 'og:image',
-          content: 'https://sadian.herokuapp.com/me.jpg'
+          content: ''
         },
         {
           hid: 'twitter-preview_img',
           name: 'twitter:image',
-          content: 'https://sadian.herokuapp.com/me.jpg'
+          content: ''
         },
         {
           hid: 'twitter-title',
