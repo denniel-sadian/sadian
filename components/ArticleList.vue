@@ -15,6 +15,7 @@
             @click="$router.push({path: '/blog/article/'+a.id, query: {reload: 0}})"
           >
             <img :src="a.image" :alt="a.headline" class="w3-image entry-image">
+            <div class="views w3-card-4"><i class="fa fa-eye"></i> {{ a.views }}</div>
             <div class="content" :title="a.headline">
               <h4 class="heading">{{ a.headline }}</h4>
               <p class="w3-small">{{ new Date(a.pub_date).toDateString() }}</p>
@@ -98,6 +99,17 @@ export default {
   max-height: 250px;
   object-fit: cover;
   width: 100%;
+}
+.views {
+  top: 10px;
+  right: 10px;
+  position: absolute;
+  background: #9c27b0;
+  color: white;
+  padding-left: 6px;
+  padding-right: 6px;
+  border-radius: 32px;
+  text-align: center;
 }
 .container {
   position: relative;

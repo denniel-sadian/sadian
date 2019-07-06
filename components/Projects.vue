@@ -18,6 +18,7 @@
             $router.push({path: '/portfolio/project/'+p.id, query: {category:p.category}})"
         >
           <img :src="p.image" :alt="p.name" class="w3-image proj-image">
+          <div class="views w3-card-4"><i class="fa fa-eye"></i> {{ p.views }}</div>
           <div class="content" :title="p.name">
             <h4>{{ p.name }}</h4>
             <p class="w3-small">{{ new Date(p.date_created).toDateString() }}</p>
@@ -141,6 +142,18 @@ export default {
 .w3-spin,
 .fa-exclamation-triangle {
   font-size: 80px !important;
+}
+
+.views {
+  top: 10px;
+  right: 10px;
+  position: absolute;
+  background: #9c27b0;
+  color: white;
+  padding-left: 6px;
+  padding-right: 6px;
+  border-radius: 32px;
+  text-align: center;
 }
 .proj-image {
   min-height: 250px;
