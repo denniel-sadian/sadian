@@ -76,7 +76,7 @@ export default {
   },
   head() {
     return {
-      title: `${this.project.name} | Denniel Sadian`,
+      title: this.project.name,
       meta: [
         {
           hid: 'description',
@@ -86,7 +86,7 @@ export default {
         {
           hid: 'twitter-title',
           name: 'twitter:title',
-          content: `${this.project.name} | Denniel Sadian`
+          content: this.project.name
         },
         {
           hid: 'twitter-desc',
