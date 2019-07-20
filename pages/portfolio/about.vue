@@ -47,7 +47,7 @@ import axios from 'axios'
 
 export default {
   layout: 'portfolio',
-  async asyncData() {
+  async asyncData({store}) {
     var a, t
     await axios.get('https://denniel.herokuapp.com/api/about/').then(res => {
       a = res.data
@@ -57,12 +57,8 @@ export default {
     })
     return { 
       about: a,
-      timelines: t
-    }
-  },
-  computed: {
-    photo() {
-      return this.$store.getters.photo
+      timelines: t,
+      photo: store.getters.photo
     }
   },
   head() {
@@ -77,12 +73,12 @@ export default {
         {
           hid: 'preview_img',
           property: 'og:image',
-          content: ''
+          content: this.photo
         },
         {
           hid: 'twitter-preview_img',
           name: 'twitter:image',
-          content: ''
+          content: this.photo
         },
         {
           hid: 'twitter-title',
