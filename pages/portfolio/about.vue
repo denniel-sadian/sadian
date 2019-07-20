@@ -67,7 +67,7 @@ export default {
   },
   head() {
     return {
-      title: 'Who is Denniel Luis Sadian',
+      title: 'About Denniel Luis Sadian',
       meta: [
         {
           hid: 'description',
