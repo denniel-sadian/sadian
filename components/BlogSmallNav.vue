@@ -40,7 +40,7 @@
         <nuxt-link to="/portfolio" class="w3-bar-item w3-button w3-round-xxlarge">
           <i class="fa fa-coffee"></i> Portfolio
         </nuxt-link>
-        <nuxt-link to="/blog" class="w3-bar-item w3-bu  tton w3-round-xxlarge">
+        <nuxt-link to="/blog" class="w3-bar-item w3-button w3-round-xxlarge">
           <i class="fa fa-book"></i> Blog
         </nuxt-link>
         <button class="w3-bar-item w3-button w3-round-xxlarge" @click="$emit('show-contact')">
