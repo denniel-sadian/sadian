@@ -34,19 +34,19 @@
             <i class="fa fa-search"></i>
           </button>
         </form>
-        <nuxt-link to="/" class="w3-bar-item w3-button">
+        <nuxt-link to="/" class="w3-bar-item w3-button w3-round-xxlarge">
           <i class="fa fa-home"></i> Home
         </nuxt-link>
-        <nuxt-link to="/portfolio" class="w3-bar-item w3-button">
+        <nuxt-link to="/portfolio" class="w3-bar-item w3-button w3-round-xxlarge">
           <i class="fa fa-coffee"></i> Portfolio
         </nuxt-link>
-        <nuxt-link to="/blog" class="w3-bar-item w3-button">
+        <nuxt-link to="/blog" class="w3-bar-item w3-bu  tton w3-round-xxlarge">
           <i class="fa fa-book"></i> Blog
         </nuxt-link>
-        <button class="w3-bar-item w3-button" @click="$emit('show-contact')">
+        <button class="w3-bar-item w3-button w3-round-xxlarge" @click="$emit('show-contact')">
           <i class="fa fa-envelope"></i> Contact
         </button>
-        <nuxt-link :to="{name: 'portfolio-about'}" class="w3-bar-item w3-button">
+        <nuxt-link :to="{name: 'portfolio-about'}" class="w3-bar-item w3-button w3-round-xxlarge">
           <i class="fa fa-info-circle"></i> About Me
         </nuxt-link>
       </nav>
