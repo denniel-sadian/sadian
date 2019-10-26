@@ -3,18 +3,18 @@
     <div id="header-nav">
       <nav class="w3-bar w3-large w3-padding w3-text-white">
         <div class="w3-content">
-          <nuxt-link to="/" class="w3-bar-item light-gray-opacity w3-round-xxlarge w3-button round-on-medium">
-            <img src="~/assets/images/icon.jpg" width="25">
+          <nuxt-link to="/" class="w3-bar-item light-gray-opacity w3-round-xxlarge w3-button round-on-small">
+            <img id="logo" src="~/assets/images/icon.jpg" width="25">
             <span class="w3-hide-small">Denniel Luis Sadian</span>
           </nuxt-link>
           <nuxt-link
             to="/portfolio"
-            class="light-gray-opacity w3-bar-item w3-round-xxlarge w3-button round-on-medium"
+            class="light-gray-opacity w3-bar-item w3-round-xxlarge w3-button round-on-small"
           >
             <i class="fa fa-coffee"></i>
             <span class="w3-hide-small">Portfolio</span>
           </nuxt-link>
-          <nuxt-link to="/blog" class="light-gray-opacity w3-bar-item w3-round-xxlarge w3-button round-on-medium">
+          <nuxt-link to="/blog" class="light-gray-opacity w3-bar-item w3-round-xxlarge w3-button round-on-small">
             <i class="fa fa-book"></i>
             <span class="w3-hide-small">Blog</span>
           </nuxt-link>
@@ -192,6 +192,11 @@ header h1 {
 .intro-img {
   object-fit: cover;
 }
+
+#logo {
+  border-radius: 5px;
+}
+
 @media (max-width: 768px) {
   header {
     padding-top: 40px !important;
@@ -205,6 +210,30 @@ header h1 {
     font-size: 40px;
   }
 }
+
+@media (max-width:600px) {
+  .round-on-small {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 43px;
+    width: 43px;
+  }
+  #logo {
+    border-radius: 32px;
+  }
+}
+
+@media (max-width:992px) and (min-width:601px) {
+  .round-on-medium {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 43px;
+    width: 43px;
+  }
+}
+
 @media (max-width: 425px) {
   header h1 {
     font-size: 50px;
