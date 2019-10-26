@@ -3,31 +3,31 @@
     <div id="header-nav">
       <nav class="w3-bar w3-large w3-padding w3-text-white">
         <div class="w3-content">
-          <nuxt-link to="/" class="w3-bar-item light-gray-opacity w3-round-xxlarge w3-button">
+          <nuxt-link to="/" class="w3-bar-item light-gray-opacity w3-round-xxlarge w3-button round-on-medium">
             <img src="~/assets/images/icon.jpg" width="25">
             <span class="w3-hide-small">Denniel Luis Sadian</span>
           </nuxt-link>
           <nuxt-link
             to="/portfolio"
-            class="light-gray-opacity w3-bar-item w3-round-xxlarge w3-button"
+            class="light-gray-opacity w3-bar-item w3-round-xxlarge w3-button round-on-medium"
           >
             <i class="fa fa-coffee"></i>
             <span class="w3-hide-small">Portfolio</span>
           </nuxt-link>
-          <nuxt-link to="/blog" class="light-gray-opacity w3-bar-item w3-round-xxlarge w3-button">
+          <nuxt-link to="/blog" class="light-gray-opacity w3-bar-item w3-round-xxlarge w3-button round-on-medium">
             <i class="fa fa-book"></i>
             <span class="w3-hide-small">Blog</span>
           </nuxt-link>
           <button
             @click="contactShow = !contactShow"
-            class="light-gray-opacity w3-bar-item w3-round-xxlarge w3-button w3-right"
+            class="light-gray-opacity w3-bar-item w3-round-xxlarge w3-button w3-right round-on-medium"
           >
             <i class="fa fa-envelope"></i>
             <span class="w3-hide-small w3-hide-medium">Contact</span>
           </button>
           <nuxt-link
             :to="{name: 'portfolio-about'}"
-            class="light-gray-opacity w3-bar-item w3-round-xxlarge w3-button w3-right"
+            class="light-gray-opacity w3-bar-item w3-round-xxlarge w3-button w3-right round-on-medium"
           >
             <i class="fa fa-info-circle"></i>
             <span class="w3-hide-small w3-hide-medium">About</span>
