@@ -152,6 +152,10 @@ export default {
             font-size: 30px;
         }
 
+        .three p {
+          font-family: "Nunito";
+        }
+
         @media screen and (max-width: 450px) {
             /* Small phones */
 
