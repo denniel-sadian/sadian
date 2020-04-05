@@ -60,9 +60,6 @@ export default {
 </script>
 
 <style scoped>
-
-        @import url(https://fonts.googleapis.com/css?family=Nunito);
-
         header {
             height: 100%;
             display: grid;
