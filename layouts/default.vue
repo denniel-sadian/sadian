@@ -5,7 +5,17 @@
 </template>
 
 <style>
-body {
-  background: linear-gradient(to bottom right, #f0e68c9d, #9b27b02d, #f0e68c9d);
-}
+html,
+        body {
+            height: 100%!important;
+            width: 100%!important;
+            padding: 0px;
+            margin: 0px;
+            overflow-x: hidden;
+        }
+
+        #__nuxt, #__layout {
+          height: 100%!important;
+          width: 100%!important;
+        }
 </style>

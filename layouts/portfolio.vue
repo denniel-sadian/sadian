@@ -209,6 +209,22 @@ export default {
 }
 </script>
 
+<style>
+html,
+        body {
+            height: unset;
+            width: unset;
+            padding: unset;
+            margin: unset;
+            overflow-x: unset;
+        }
+
+        #__nuxt, #__layout {
+          height: unset;
+          width: unset;
+        }
+</style>
+
 <style scoped>
 header,
 #footer,
