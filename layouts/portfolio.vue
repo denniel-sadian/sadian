@@ -134,6 +134,12 @@
             <i class="fa fa-info-circle"></i> About Me
           </button>
           <a
+            href="/resume.pdf"
+            class="w3-bar-item w3-button w3-large w3-round-xxlarge"
+          >
+            <i class="fas fa-portrait"></i> Resume
+          </a>
+          <a
             href="https://denniel.herokuapp.com/admin/"
             class="w3-bar-item w3-button w3-large w3-round-xxlarge"
           >
