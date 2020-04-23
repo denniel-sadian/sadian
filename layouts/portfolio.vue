@@ -12,34 +12,49 @@
             :src="photo"
             class="face animated fadeIn w3-image w3-circle w3-margin-top w3-card-4"
             width="150"
-          >
+          />
           <img
             key="large_icon"
             v-else
             src="~/assets/images/icon.jpg"
             class="face animated fadeIn w3-image w3-circle w3-margin-top w3-card-4"
             width="150"
-          >
+          />
           <h3>Denniel Luis Saway Sadian</h3>
         </div>
-        <nuxt-link to="/" class="w3-bar-item w3-button w3-large w3-round-xxlarge">
+        <nuxt-link
+          to="/"
+          class="w3-bar-item w3-button w3-large w3-round-xxlarge"
+        >
           <i class="fa fa-home"></i> Home
         </nuxt-link>
-        <nuxt-link to="/blog" class="w3-bar-item w3-button w3-large w3-round-xxlarge">
+        <nuxt-link
+          to="/blog"
+          class="w3-bar-item w3-button w3-large w3-round-xxlarge"
+        >
           <i class="fa fa-book"></i> Blog
         </nuxt-link>
         <button
           class="w3-bar-item w3-button w3-large w3-round-xxlarge"
-          @click="contactShow = !contactShow; navShow = !navShow"
+          @click="
+            contactShow = !contactShow
+            navShow = !navShow
+          "
         >
           <i class="fa fa-envelope"></i> Contact
         </button>
         <nuxt-link
-          :to="{name: 'portfolio-about'}"
+          :to="{ name: 'portfolio-about' }"
           class="w3-bar-item w3-button w3-large w3-round-xxlarge"
         >
           <i class="fa fa-info-circle"></i> About Me
         </nuxt-link>
+        <a
+          href="/resume.pdf"
+          class="w3-bar-item w3-button w3-large w3-round-xxlarge"
+        >
+          <i class="fas fa-portrait"></i> Resume
+        </a>
         <a
           href="https://denniel.herokuapp.com/admin/"
           class="w3-bar-item w3-button w3-large w3-round-xxlarge"
@@ -59,11 +74,17 @@
           key="1"
           style="z-index: 2"
         >
-          <button class="w3-button w3-hide-large w3-large" @click="navShow = !navShow">
+          <button
+            class="w3-button w3-hide-large w3-large"
+            @click="navShow = !navShow"
+          >
             <i class="fa fa-times"></i>
           </button>
           <form
-            @submit.prevent="search(); navShow = !navShow"
+            @submit.prevent="
+              search()
+              navShow = !navShow
+            "
             class="w3-bar-item w3-container w3-border-purple w3-bottombar"
           >
             <input
@@ -73,7 +94,7 @@
               placeholder="Search project..."
               style="border:0px; border-radius:32px 0px 0px 32px;"
               required="required"
-            >
+            />
             <button
               type="submit"
               class="w3-button w3-purple w3-hover-purple w3-col s2"
@@ -82,20 +103,32 @@
               <i class="fa fa-search"></i>
             </button>
           </form>
-          <nuxt-link to="/" class="w3-bar-item w3-button w3-large w3-round-xxlarge">
+          <nuxt-link
+            to="/"
+            class="w3-bar-item w3-button w3-large w3-round-xxlarge"
+          >
             <i class="fa fa-home"></i> Home
           </nuxt-link>
-          <nuxt-link to="/blog" class="w3-bar-item w3-button w3-large w3-round-xxlarge">
+          <nuxt-link
+            to="/blog"
+            class="w3-bar-item w3-button w3-large w3-round-xxlarge"
+          >
             <i class="fa fa-book"></i> Blog
           </nuxt-link>
           <button
             class="w3-bar-item w3-button w3-large w3-round-xxlarge"
-            @click="contactShow = !contactShow; navShow = !navShow"
+            @click="
+              contactShow = !contactShow
+              navShow = !navShow
+            "
           >
             <i class="fa fa-envelope"></i> Contact
           </button>
           <button
-            @click="navShow = !navShow; $router.push({name: 'portfolio-about'})"
+            @click="
+              navShow = !navShow
+              $router.push({ name: 'portfolio-about' })
+            "
             class="w3-bar-item w3-button w3-large w3-round-xxlarge"
           >
             <i class="fa fa-info-circle"></i> About Me
@@ -109,7 +142,10 @@
         </div>
       </transition-group>
 
-      <header class="w3-container w3-text-white w3-border-purple w3-bottombar" style="padding:0px">
+      <header
+        class="w3-container w3-text-white w3-border-purple w3-bottombar"
+        style="padding:0px"
+      >
         <button
           class="w3-button w3-hide-large w3-large w3-hover-purple"
           @click="navShow = !navShow"
@@ -118,7 +154,10 @@
         </button>
         <form
           class="w3-container w3-hide-small w3-hide-medium w3-display-topright w3-margin-top"
-          @submit.prevent="search(); navShow = !navShow"
+          @submit.prevent="
+            search()
+            navShow = !navShow
+          "
         >
           <input
             v-model="q"
@@ -127,7 +166,7 @@
             placeholder="Search project..."
             style="border:0px; border-radius:32px 0px 0px 32px;"
             required="required"
-          >
+          />
           <button
             type="submit"
             class="w3-button w3-purple w3-hover-purple w3-col s2"
@@ -136,16 +175,20 @@
             <i class="fa fa-search"></i>
           </button>
         </form>
-        <h1 class="w3-padding w3-hide-small w3-margin-top">Welcome to my Portfolio</h1>
+        <h1 class="w3-padding w3-hide-small w3-margin-top">
+          Welcome to my Portfolio
+        </h1>
         <h1
           id="small-heading"
           class="w3-padding w3-hide-large w3-hide-medium w3-margin-top"
-        >Denniel's Portfolio</h1>
+        >
+          Denniel's Portfolio
+        </h1>
 
-        <Categories/>
+        <Categories />
 
         <div class="w3-padding w3-display-topright w3-hide-large">
-          <nuxt-link :to="{name: 'portfolio-about'}">
+          <nuxt-link :to="{ name: 'portfolio-about' }">
             <img
               key="small_face"
               v-if="$route.name != 'portfolio-about'"
@@ -153,7 +196,7 @@
               style="min-height:80px!important; max-height:80px!important"
               width="80"
               class="animated bounceIn face w3-image w3-circle w3-card"
-            >
+            />
             <img
               key="small_icon"
               v-else
@@ -161,24 +204,28 @@
               style="min-height:80px!important; max-height:80px!important"
               width="80"
               class="face animated bounceIn w3-image w3-circle w3-card"
-            >
+            />
           </nuxt-link>
         </div>
       </header>
 
       <div id="content" class="w3-container">
-        <nuxt/>
+        <nuxt />
       </div>
 
-      <Contact :show="contactShow" key="contact" @hide-contact-modal="contactShow = !contactShow"/>
+      <Contact
+        :show="contactShow"
+        key="contact"
+        @hide-contact-modal="contactShow = !contactShow"
+      />
 
-      <Footer/>
+      <Footer />
     </div>
   </transition>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from 'axios'
 import Footer from '~/components/Footer.vue'
 import Categories from '~/components/Categories.vue'
 import Contact from '~/components/Contact.vue'
@@ -211,18 +258,19 @@ export default {
 
 <style>
 html,
-        body {
-            height: unset;
-            width: unset;
-            padding: unset;
-            margin: unset;
-            overflow-x: unset;
-        }
+body {
+  height: unset;
+  width: unset;
+  padding: unset;
+  margin: unset;
+  overflow-x: unset;
+}
 
-        #__nuxt, #__layout {
-          height: unset;
-          width: unset;
-        }
+#__nuxt,
+#__layout {
+  height: unset;
+  width: unset;
+}
 </style>
 
 <style scoped>
