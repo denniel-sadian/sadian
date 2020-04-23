@@ -10,7 +10,7 @@
         <nuxt-link to="/portfolio/" class="w3-button w3-yellow w3-round">
           See My Works
         </nuxt-link>
-        <a href="/resume.pdf" class="w3-button w3-yellow w3-round"></a>
+        <a href="/resume.pdf" class="w3-button w3-yellow w3-round">My Resume</a>
       </div>
     </div>
     <div class="photo w3-animate-bottom">
