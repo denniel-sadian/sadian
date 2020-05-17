@@ -11,6 +11,12 @@
           See My Works
         </nuxt-link>
         <a href="/resume.pdf" class="w3-button w3-yellow w3-round">My Resume</a>
+        <button
+          @click="contactShow = true"
+          class="w3-button w3-yellow w3-round"
+        >
+          Contact Me
+        </button>
       </div>
     </div>
     <div class="photo w3-animate-bottom">
