@@ -15,9 +15,7 @@
             >
               <i class="fa fa-times-circle"></i>
             </span>
-            <h2>
-              <i class="fa fa-pencil"></i> Contact me!
-            </h2>
+            <h2><i class="fa fa-pencil"></i> Contact me!</h2>
           </div>
           <div class="w3-container">
             <form
@@ -29,13 +27,13 @@
                 placeholder="Full Name"
                 v-model="name"
                 required
-              >
+              />
               <input
                 class="w3-input w3-margin-bottom w3-border-gray w3-hover-border-purple"
                 placeholder="Email"
                 v-model="email"
                 required
-              >
+              />
               <textarea
                 class="w3-border-gray w3-hover-border-purple"
                 v-model="message"
@@ -49,17 +47,13 @@
                   @click="clear()"
                   class="w3-button w3-round-xxlarge w3-padding w3-card-4 w3-red"
                 >
-                  <b>
-                    <i class="fa fa-trash"></i> Clear
-                  </b>
+                  <b> <i class="fa fa-trash"></i> Clear </b>
                 </button>
                 <button
                   type="submit"
                   class="w3-button w3-round-xxlarge w3-padding w3-card-4 w3-purple w3-margin-left"
                 >
-                  <b>
-                    <i class="fab fa-telegram-plane"></i> Submit
-                  </b>
+                  <b> <i class="fab fa-telegram-plane"></i> Submit </b>
                 </button>
               </div>
             </form>
@@ -87,7 +81,7 @@ export default {
           email: this.email,
           content: this.message
         })
-        .then(function() {
+        .then(() => {
           alert('Thank you very much for leaving me a message!')
           this.clear()
         })
