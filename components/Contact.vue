@@ -91,9 +91,6 @@ export default {
           alert('Thank you very much for leaving me a message!')
           this.clear()
         })
-        .catch(function() {
-          alert('Sorry, I did something bad. Try again in a little bit!')
-        })
     },
     clear() {
       this.name = ''
