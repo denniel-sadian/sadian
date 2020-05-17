@@ -1,11 +1,11 @@
 import pkg from './package'
 
 export default {
-  mode: 'universal',
+  mode: 'spa',
 
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
     title: pkg.name,
     meta: [
@@ -22,45 +22,44 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: '/css/all.css' },
-      { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/animate.css@3.5.1' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Nunito' }
+      {
+        rel: 'stylesheet',
+        href: 'https://cdn.jsdelivr.net/npm/animate.css@3.5.1'
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css?family=Nunito'
+      }
     ]
   },
 
   /*
-  ** Customize the progress-bar color
-  */
+   ** Customize the progress-bar color
+   */
   loading: { color: '#ffeb3b' },
 
   /*
-  ** Global CSS
-  */
-  css: [
-    '~/assets/css/w3.css',
-    '~/assets/css/transitions.css'
-  ],
+   ** Global CSS
+   */
+  css: ['~/assets/css/w3.css', '~/assets/css/transitions.css'],
 
   /*
-  ** Plugins to load before mounting the App
-  */
-  plugins: [
-  ],
+   ** Plugins to load before mounting the App
+   */
+  plugins: [],
 
   /*
-  ** Nuxt.js modules
-  */
-  modules: [
-    ['vue-scrollto/nuxt', { duration: 300 }]
-  ],
+   ** Nuxt.js modules
+   */
+  modules: [['vue-scrollto/nuxt', { duration: 300 }]],
 
   /*
-  ** Build configuration
-  */
+   ** Build configuration
+   */
   build: {
     /*
-    ** You can extend webpack config here
-    */
-    extend(config, ctx) {
-    }
+     ** You can extend webpack config here
+     */
+    extend(config, ctx) {}
   }
 }
