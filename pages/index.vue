@@ -12,7 +12,7 @@
         </nuxt-link>
         <a href="/resume.pdf" class="w3-button w3-yellow w3-round">My Resume</a>
         <button
-          @click="contactShow = true"
+          @click="contactShow = !contactShow"
           class="w3-button w3-yellow w3-round"
         >
           Contact Me
