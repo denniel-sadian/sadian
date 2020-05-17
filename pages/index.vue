@@ -184,6 +184,10 @@ header {
   font-family: 'Nunito';
 }
 
+.w3-button {
+  margin-bottom: 4px;
+}
+
 @media screen and (max-width: 450px) {
   /* Small phones */
 
