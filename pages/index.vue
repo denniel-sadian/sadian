@@ -41,11 +41,23 @@
         </div>
       </div>
     </div>
+
+    <Contact
+      :show="contactShow"
+      key="contact"
+      @hide-contact-modal="contactShow = !contactShow"
+    />
   </header>
 </template>
 
 <script>
+import Contact from '~/components/Contact.vue'
+
 export default {
+  components: { Contact },
+  data() {
+    return { contactShow: false }
+  },
   head() {
     return {
       title: 'Dein Sadian',
