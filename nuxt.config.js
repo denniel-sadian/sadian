@@ -30,6 +30,12 @@ export default {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css?family=Nunito'
       }
+    ],
+    script: [
+      {
+        src: 'https://kit.fontawesome.com/209b41c676.js',
+        crossorigin: 'anonymous'
+      }
     ]
   },
 
