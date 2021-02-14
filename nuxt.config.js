@@ -73,6 +73,6 @@ export default {
    ** Env
    */
   env: {
-    profilePic: process.env.PROFILE_PIC
+    profilePic: process.env.PROFILE_PIC || 'https://avatars2.githubusercontent.com/u/30485137?s=460&u=b5a13c4c462ef5aac3af7a68cb33097eb2772f42&v=4'
   }
 }
