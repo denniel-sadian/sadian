@@ -67,5 +67,12 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+
+  /*
+   ** Env
+   */
+  env: {
+    profilePic: process.env.PROFILE_PIC
   }
 }
