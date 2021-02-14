@@ -7,10 +7,10 @@
           v-if="pageNumber != 0"
           class="w3-button w3-purple w3-hover-pink w3-round-xxlarge"
         >
-          <i class="fa fa-chevron-left"></i>￼
+          <i class="fa fa-chevron-left"></i>
         </button>
         <span v-else class="w3-button w3-gray w3-hover-pink w3-round-xxlarge">
-          <i class="fa fa-chevron-left"></i>￼
+          <i class="fa fa-chevron-left"></i>
         </span>
 
         <span>{{ pageNumber + 1 }} of {{ max + 1 }}</span>
@@ -24,7 +24,7 @@
           <i class="fa fa-chevron-right"></i>
         </button>
         <span v-else class="w3-button w3-gray w3-hover-pink w3-round-xxlarge">
-          <i class="fa fa-chevron-right"></i>￼
+          <i class="fa fa-chevron-right"></i>
         </span>
       </span>
     </div>
