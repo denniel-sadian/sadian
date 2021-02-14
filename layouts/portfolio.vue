@@ -150,7 +150,7 @@
 
       <header
         class="w3-container w3-text-white w3-border-purple w3-bottombar"
-        style="padding:0px"
+        style="padding:0px; position: relative!important"
       >
         <button
           class="w3-button w3-hide-large w3-large w3-hover-purple"
