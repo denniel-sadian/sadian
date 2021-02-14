@@ -182,12 +182,12 @@
             <i class="fa fa-search"></i>
           </button>
         </form>
-        <h1 class="w3-padding w3-hide-small w3-margin-top">
+        <h1 class="w3-padding margin-top w3-hide-small">
           Welcome to my Portfolio
         </h1>
         <h1
           id="small-heading"
-          class="w3-padding w3-hide-large w3-hide-medium w3-margin-top"
+          class="w3-padding margin-top w3-hide-large w3-hide-medium"
         >
           Denniel's Portfolio
         </h1>
@@ -309,6 +309,9 @@ header,
 body,
 footer {
   background-size: cover;
+}
+.margin-top {
+  margin: 40px 0px 0px 0px;
 }
 .face {
   border: 4px solid white;
