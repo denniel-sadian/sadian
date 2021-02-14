@@ -74,8 +74,8 @@ export default {
       return this.$route.query.category
     }
   },
-  created() {
-    axios.get('https://denniel.herokuapp.com/api/projects/').then(res => {
+  async created() {
+    await axios.get('https://denniel.herokuapp.com/api/projects/').then(res => {
       this.projects = res.data
     })
   }

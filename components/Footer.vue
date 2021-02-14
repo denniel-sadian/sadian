@@ -148,13 +148,12 @@ export default {
         })
     }
   },
-  created() {
-    var day = new Date().getDay()
-    axios
+  async created() {
+    await axios
       .get('https://denniel.herokuapp.com/extras/api/days/' + this.day)
       .then(res => {
         this.q = res.data
-      })
+    })
   }
 }
 </script>

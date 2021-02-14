@@ -63,8 +63,8 @@ export default {
       this.$router.push({ path: '/blog/article/' + id, query: { reload: 0 } })
     }
   },
-  created() {
-    axios.get('https://denniel.herokuapp.com/blog/api/archive/').then(res => {
+  async created() {
+    await axios.get('https://denniel.herokuapp.com/blog/api/archive/').then(res => {
       this.lists = res.data
     })
   }

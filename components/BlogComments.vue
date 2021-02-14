@@ -78,9 +78,9 @@ export default {
     }
   },
   methods: {
-    getComments(id) {
+    async getComments(id) {
       var link = 'https://denniel.herokuapp.com/blog/api/entries/' + id
-      axios.get(link + '/comments').then(res => {
+      await axios.get(link + '/comments').then(res => {
         this.comments = res.data
         this.pageCount = Math.ceil(this.comments.length / this.size)
       })
