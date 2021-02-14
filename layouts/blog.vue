@@ -1,6 +1,6 @@
 <template>
   <transition name="layout" mode="out-in">
-    <div>
+    <div style="position: relative!important">
       <BlogSmallNav
         :show="navShow"
         @hide-small-nav="navShow = !navShow"
