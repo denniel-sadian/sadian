@@ -159,7 +159,8 @@
           <i class="fa fa-bars"></i>
         </button>
         <form
-          class="w3-container w3-hide-small w3-hide-medium w3-display-topright w3-margin-top"
+          id="small-search"
+          class="w3-hide-small w3-hide-medium top-right"
           @submit.prevent="
             search()
             navShow = !navShow
@@ -193,7 +194,7 @@
 
         <Categories />
 
-        <div class="w3-padding w3-display-topright w3-hide-large">
+        <div class="w3-hide-large top-right">
           <nuxt-link :to="{ name: 'portfolio-about' }">
             <img
               key="small_face"
@@ -314,6 +315,14 @@ footer {
   max-height: 150px;
   min-height: 150px;
   object-fit: cover;
+}
+#small-search {
+  width: 300px;
+}
+.top-right {
+  position: absolute;
+  top: 16px;
+  right: 16px;
 }
 @media (max-width: 992px) {
   header,
