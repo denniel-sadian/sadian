@@ -11,13 +11,8 @@ export const mutations = {
 }
 
 export const actions = {
-  async nuxtServerInit({ dispatch }) {
-    await dispatch('getPhoto')
-  },
-  async getPhoto({ commit }) {
-    await axios.get('https://denniel.herokuapp.com/extras/api/photo/').then(res => {
-      commit('SET_PHOTO', res.data)
-    })
+  async nuxtServerInit({ commit }) {
+    await commit('SET_PHOTO', process.env.profilePic)
   }
 }
 
