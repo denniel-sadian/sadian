@@ -91,9 +91,10 @@ export default {
 
 <style scoped>
 header {
-  height: 100%;
+  height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto !important;
   grid-template-areas:
     'texts photo'
     'three three';
@@ -112,6 +113,8 @@ header {
   justify-content: center;
   height: 100%;
   width: 100%;
+  max-width: 500px;
+  margin-right: auto;
   overflow: hidden !important;
 }
 
@@ -127,10 +130,10 @@ header {
   display: flex;
   justify-content: flex-end;
   color: white;
-}
-
-.texts > div {
-  width: 80%;
+  width: 100%;
+  max-width: 500px;
+  margin-left: auto;
+  padding-left: 20px;
 }
 
 .texts > div h1,
@@ -163,6 +166,7 @@ header {
   display: grid;
   align-items: center;
   grid-template-columns: repeat(3, 1fr);
+  max-width: 1000px;
 }
 
 .three > div > div {
@@ -195,7 +199,7 @@ header {
   }
 }
 
-@media screen and (max-width: 730px) {
+@media screen and (max-width: 850px) {
   header {
     display: flex;
     flex-direction: column;
@@ -210,10 +214,12 @@ header {
     justify-content: center;
     text-align: center;
     order: 2;
+    margin-left: unset;
   }
 
   .photo {
     height: unset;
+    margin-right: unset;
   }
 
   .photo img {
@@ -228,26 +234,6 @@ header {
 
   .three {
     display: none;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .texts > div {
-    width: 90%;
-  }
-}
-
-@media screen and (min-height: 850px) {
-  header {
-    grid-template-rows: 640px 1fr;
-  }
-
-  .three {
-    font-size: 20px;
-  }
-
-  .three i {
-    font-size: 50px;
   }
 }
 </style>
