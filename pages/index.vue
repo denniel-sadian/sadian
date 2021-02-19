@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="photo w3-animate-bottom">
-      <img src="../assets/images/long-me.png" alt="Me" />
+      <img src="~/assets/images/long-me.png" alt="Me" />
     </div>
     <div class="three">
       <div class="w3-content">
@@ -71,21 +71,21 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'Greetings! Welcome to my website!'
+          content: 'Greetings! Welcome to my website!',
         },
         {
           hid: 'twitter-title',
           name: 'twitter:title',
-          content: 'Denniel Luis Saway Sadian'
+          content: 'Denniel Luis Saway Sadian',
         },
         {
           hid: 'twitter-desc',
           name: 'twitter:description',
-          content: 'Greetings! Welcome to my website!'
-        }
-      ]
+          content: 'Greetings! Welcome to my website!',
+        },
+      ],
     }
-  }
+  },
 }
 </script>
 
@@ -97,8 +97,7 @@ header {
   grid-template-areas:
     'texts photo'
     'three three';
-  background: url('../assets/images/header-bg.jpg')
-    no-repeat fixed;
+  background: url('../assets/images/header-bg.jpg') no-repeat fixed;
   background-position: bottom;
   width: 100%;
   background-size: cover;
@@ -202,8 +201,7 @@ header {
     flex-direction: column;
     justify-content: center !important;
     align-items: center !important;
-    background: url('../assets/images/small-header-bg.jpg')
-      no-repeat fixed;
+    background: url('../assets/images/small-header-bg.jpg') no-repeat fixed;
     background-position: bottom;
     background-size: cover;
   }
