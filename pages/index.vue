@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="photo w3-animate-bottom">
-      <img src="https://denniel-sadian.github.io/img/long-me.png" alt="Me" />
+      <img src="../assets/images/long-me.png" alt="Me" />
     </div>
     <div class="three">
       <div class="w3-content">
@@ -97,7 +97,7 @@ header {
   grid-template-areas:
     'texts photo'
     'three three';
-  background: url('https://denniel-sadian.github.io/img/header-bg.jpg')
+  background: url('../assets/images/header-bg.jpg')
     no-repeat fixed;
   background-position: bottom;
   width: 100%;
@@ -202,7 +202,7 @@ header {
     flex-direction: column;
     justify-content: center !important;
     align-items: center !important;
-    background: url('https://denniel-sadian.github.io/img/small-header-bg.jpg')
+    background: url('../assets/images/small-header-bg.jpg')
       no-repeat fixed;
     background-position: bottom;
     background-size: cover;
