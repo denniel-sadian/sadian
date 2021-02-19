@@ -16,7 +16,7 @@ export default {
       {
         hid: 'twitter-preview_img',
         name: 'twitter:image',
-        content: 'https://sadian.herokuapp.com/icon.jpg'
+        content: '~/assets/images/icon.jpg'
       }
     ],
     link: [
