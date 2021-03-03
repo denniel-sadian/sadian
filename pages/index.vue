@@ -91,7 +91,7 @@ export default {
 
 <style scoped>
 header {
-  height: 100vh;
+  height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr auto !important;
