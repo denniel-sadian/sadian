@@ -8,29 +8,36 @@
         :src="photo"
         class="face w3-circle w3-image w3-card-4"
         width="150"
-        style="border:6px solid #9c27b0; position:relative; top: 70px;"
-      >
+        style="border: 6px solid #9c27b0; position: relative; top: 70px"
+      />
     </div>
     <div
       class="w3-container w3-border w3-border-purple w3-white"
-      style="border-radius:0px 0px 4px 32px"
+      style="border-radius: 0px 0px 4px 32px"
     >
-      <br>
-      <br>
-      <h1 class="w3-margin-top w3-center">Denniel Luis Saway Sadian</h1>
+      <br />
+      <br />
+      <h1 class="w3-margin-top w3-center">Denniel Luis S. Sadian</h1>
       <div v-for="p in about" :key="p.id" v-html="p.text"></div>
       <h1 class="w3-center w3-text-purple">
         <i class="fa fa-calendar"></i> My Life Events
       </h1>
       <div v-for="t in timelines" :key="t.date" class="timeline">
-        <div class="timeline-container" :class="{'left': t.left, 'right': !t.left}">
+        <div
+          class="timeline-container"
+          :class="{ left: t.left, right: !t.left }"
+        >
           <div class="timeline-content w3-border w3-border-purple w3-card-4">
             <div v-if="t.image" class="image-holder">
-              <img :src="t.image" class="w3-image" style="border-radius: 8px 8px 0px 0px">
+              <img
+                :src="t.image"
+                class="w3-image"
+                style="border-radius: 8px 8px 0px 0px"
+              />
             </div>
             <h2 class="w3-center w3-text-purple">
               <i v-if="!t.image" class="fa fa-calendar"></i>
-              <br>
+              <br />
               {{ new Date(t.date).getFullYear() }}
             </h2>
             <h5 class="w3-center w3-text-purple">{{ t.title }}</h5>
@@ -47,18 +54,20 @@ import axios from 'axios'
 
 export default {
   layout: 'portfolio',
-  async asyncData({store}) {
-    var a, t
-    await axios.get('https://denniel.herokuapp.com/api/about/').then(res => {
+  async asyncData({ store }) {
+    let a, t
+    await axios.get('https://denniel.herokuapp.com/api/about/').then((res) => {
       a = res.data
     })
-    await axios.get('https://denniel.herokuapp.com/api/timeline/').then(res => {
-      t = res.data
-    })
-    return { 
+    await axios
+      .get('https://denniel.herokuapp.com/api/timeline/')
+      .then((res) => {
+        t = res.data
+      })
+    return {
       about: a,
       timelines: t,
-      photo: store.getters.photo
+      photo: store.getters.photo,
     }
   },
   head() {
@@ -68,31 +77,21 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'He is a programmamer who likes to code, of course.'
-        },
-        {
-          hid: 'preview_img',
-          property: 'og:image',
-          content: this.photo
-        },
-        {
-          hid: 'twitter-preview_img',
-          name: 'twitter:image',
-          content: this.photo
+          content: 'He is a human being who codes.',
         },
         {
           hid: 'twitter-title',
           name: 'twitter:title',
-          content: 'Who is Denniel Luis Sadian'
+          content: 'Denniel Luis Sadian',
         },
         {
           hid: 'twitter-desc',
           name: 'twitter:description',
-          content: 'He is a programmer who likes to code, of course.'
-        }
-      ]
+          content: 'He is a human being who codes.',
+        },
+      ],
     }
-  }
+  },
 }
 </script>
 
