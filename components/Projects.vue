@@ -3,9 +3,9 @@
     <div v-if="moddedProjects.length">
       <h3 class="w3-text-purple">
         Total of
-        <span
-          class="w3-tag w3-round-xxlarge w3-purple w3-circle"
-        >{{ moddedProjects.length }}</span>
+        <span class="w3-tag w3-round-xxlarge w3-purple w3-circle">{{
+          moddedProjects.length
+        }}</span>
       </h3>
       <div
         v-for="p in pagedProjects"
@@ -15,23 +15,37 @@
         <div
           class="container w3-hover-shadow w3-border w3-border-purple w3-round-xlarge"
           @click="
-            $router.push({path: '/portfolio/project/'+p.id, query: {category:p.category}})"
+            $router.push({
+              path: '/portfolio/project/' + p.id,
+              query: { category: p.category },
+            })
+          "
         >
-          <img :src="p.image" :alt="p.name" class="w3-image proj-image">
-          <div class="views w3-card-4"><i class="fa fa-eye"></i> {{ p.views }}</div>
+          <img :src="p.image" :alt="p.name" class="w3-image proj-image" />
+          <div class="views w3-card-4">
+            <i class="fa fa-eye"></i> {{ p.views }}
+          </div>
           <div class="content" :title="p.name">
             <h4>{{ p.name }}</h4>
-            <p class="w3-small">{{ new Date(p.date_created).toDateString() }}</p>
+            <p class="w3-small">
+              {{ new Date(p.date_created).toDateString() }}
+            </p>
           </div>
         </div>
       </div>
-      <projects-paginator :actualNumber="moddedProjects.length" :pageNumber="page"/>
+      <projects-paginator
+        :actualNumber="moddedProjects.length"
+        :pageNumber="page"
+      />
     </div>
 
-    <div v-else class="w3-center w3-text-red w3-padding w3-margin animated bounceIn">
+    <div
+      v-else
+      class="w3-center w3-text-red w3-padding w3-margin animated bounceIn"
+    >
       <h1>
         <i class="fa fa-exclamation-triangle"></i>
-        <br>Sorry, I found none.
+        <br />Sorry, I found none.
       </h1>
     </div>
   </div>
@@ -43,7 +57,7 @@ import ProjectsPaginator from '~/components/ProjectsPaginator.vue'
 export default {
   transition: 'page',
   components: {
-    ProjectsPaginator
+    ProjectsPaginator,
   },
   props: ['projects'],
   data() {
@@ -51,7 +65,7 @@ export default {
       moddedProjects: [],
       size: 12,
       pageCount: 0,
-      foundNone: false
+      foundNone: false,
     }
   },
   computed: {
@@ -68,7 +82,7 @@ export default {
       if (this.$route.query.category) {
         return `These are the ${this.$route.query.category}s of Denniel.`
       } else {
-        return `He has created ${this.projects.length} applications.`
+        return `He has created ${this.projects.length} programs. Some of them are funny.`
       }
     },
     page() {
@@ -82,33 +96,33 @@ export default {
       var start = this.page * this.size
       var end = start + this.size
       return this.moddedProjects.slice(start, end)
-    }
+    },
   },
   watch: {
-    $route: function(r) {
+    $route: function (r) {
       this.moddedProjects = []
       this.getProjects(r.query.category, r.query.q)
-    }
+    },
   },
   methods: {
     getProjects(c, q) {
       var link = 'https://denniel.herokuapp.com/api/projects/'
       if (q) {
-        this.moddedProjects = this.projects.filter(function(p) {
+        this.moddedProjects = this.projects.filter(function (p) {
           return p.name.toLowerCase().includes(q.toLowerCase())
         })
         if (this.moddedProjects.length == 1) {
           this.$router.push({
             path: '/portfolio/project/' + this.moddedProjects[0].id,
-            query: { category: this.moddedProjects[0].category }
+            query: { category: this.moddedProjects[0].category },
           })
         } else this.foundNone = true
       } else if (c) {
-        this.moddedProjects = this.projects.filter(function(p) {
+        this.moddedProjects = this.projects.filter(function (p) {
           return p.category == c
         })
       } else this.moddedProjects = this.projects
-    }
+    },
   },
   mounted() {
     this.getProjects(this.$route.query.category, this.$route.query.q)
@@ -120,21 +134,21 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: this.description
+          content: this.description,
         },
         {
           hid: 'twitter-title',
           name: 'twitter:title',
-          content: this.title
+          content: this.title,
         },
         {
           hid: 'twitter-desc',
           name: 'twitter:description',
-          content: this.description
-        }
-      ]
+          content: this.description,
+        },
+      ],
     }
-  }
+  },
 }
 </script>
 
