@@ -1,9 +1,12 @@
 <template>
   <header>
+    <div class="photo w3-animate-bottom">
+      <img src="~/assets/images/long-me.png" alt="Me" />
+    </div>
     <div class="texts w3-animate-left">
       <div>
-        <p class="w3-text-yellow">My name is Denniel Luis Sadian</p>
-        <h1>I'm a full stack developer from Marinduque.</h1>
+        <p class="w3-text-yellow name">My name is Denniel Luis Sadian</p>
+        <h1>I'm a Full stack developer from Marinduque.</h1>
         <p>
           I love working with web technologies. Web development is my passion.
         </p>
@@ -18,9 +21,6 @@
           Contact Me
         </button>
       </div>
-    </div>
-    <div class="photo w3-animate-bottom">
-      <img src="~/assets/images/long-me.png" alt="Me" />
     </div>
     <div class="three">
       <div class="w3-content">
@@ -40,10 +40,7 @@
         </div>
         <div class="w3-padding">
           <i class="fa fa-comments"></i>
-          <p>
-            I can communicate nicely and effectively using English and my mother
-            tongue.
-          </p>
+          <p>I can communicate just fine using English and my mother tongue.</p>
         </div>
       </div>
     </div>
@@ -94,7 +91,7 @@ header {
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr auto !important;
+  grid-template-rows: 1fr auto;
   grid-template-areas:
     'texts photo'
     'three three';
@@ -103,7 +100,12 @@ header {
   width: 100%;
   background-size: cover;
   z-index: 0;
-  overflow: hidden !important;
+  overflow: hidden;
+}
+
+.name {
+  text-shadow: 3px 0px 7px rgba(81, 67, 21, 0.8),
+    -3px 0px 7px rgba(81, 67, 21, 0.8), 0px 4px 7px rgba(81, 67, 21, 0.8);
 }
 
 .photo {
@@ -152,6 +154,8 @@ header {
   font-size: 50px;
   line-height: 1em;
   font-weight: 800;
+  text-shadow: 3px 0px 7px rgba(114, 109, 92, 0.8),
+    -3px 0px 7px rgba(156, 145, 110, 0.8), 0px 4px 7px rgba(177, 170, 148, 0.8);
 }
 
 .three {
@@ -201,24 +205,27 @@ header {
 
 @media screen and (max-width: 850px) {
   header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center !important;
-    align-items: center !important;
     background: url('../assets/images/small-header-bg.jpg') no-repeat fixed;
     background-position: bottom;
     background-size: cover;
+    overflow: unset;
+    display: block;
   }
 
   .texts {
-    justify-content: center;
+    height: 60vh;
     text-align: center;
-    order: 2;
+    padding: 8px;
+    max-width: unset;
     margin-left: unset;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 
   .photo {
-    height: unset;
+    height: 40vh;
+    margin-right: unset;
+    max-width: unset;
     margin-right: unset;
   }
 
@@ -232,8 +239,19 @@ header {
     background: #ffeb3b6b;
   }
 
-  .three {
-    display: none;
+  .three > div {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+  }
+
+  .three > div > div {
+    border-bottom: 1px solid lightgray;
+    border-right: unset;
+  }
+
+  .three > div > div:last-child {
+    border-bottom: none;
   }
 }
 </style>
