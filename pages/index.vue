@@ -1,56 +1,115 @@
 <template>
-  <header>
-    <div class="photo w3-animate-bottom">
-      <img src="~/assets/images/long-me.png" alt="Me" />
-    </div>
-    <div class="texts w3-animate-left">
-      <div>
-        <p class="w3-text-yellow name">My name is Denniel Luis Sadian</p>
-        <h1>I'm a Full stack developer from Marinduque.</h1>
-        <p>
-          I love working with web technologies. Web development is my passion.
-        </p>
-        <nuxt-link to="/portfolio/" class="w3-button w3-yellow w3-round">
-          See My Works
-        </nuxt-link>
-        <a href="/resume.pdf" class="w3-button w3-yellow w3-round">My Resume</a>
-        <button
-          @click="contactShow = !contactShow"
-          class="w3-button w3-yellow w3-round"
-        >
-          Contact Me
-        </button>
+  <div class="myroot">
+    <header>
+      <div class="photo w3-animate-bottom">
+        <img src="long-me.png" alt="Me" />
       </div>
-    </div>
-    <div class="three">
-      <div class="w3-content">
-        <div class="w3-padding">
-          <i class="fa fa-object-group"></i>
-          <p>
-            I design minimalist web applications while maintaining good user
-            experience.
+      <div class="texts w3-animate-left">
+        <div>
+          <p class="w3-text-yellow shadow">DENNIEL LUIS S. SADIAN</p>
+          <h1>I'm a Web Developer from Marinduque.</h1>
+          <p class="shadow">
+            I strive to learn new things and apply them at work, and also learn
+            from my colleagues' experiences. I believe that everyone can code,
+            but not everyone writes clean code. Developing web apps is my
+            passion.
           </p>
-        </div>
-        <div class="w3-padding">
-          <i class="fa fa-keyboard"></i>
-          <p>
-            I am knowledgable of different web technologies for both front and
-            back.
-          </p>
-        </div>
-        <div class="w3-padding">
-          <i class="fa fa-comments"></i>
-          <p>I can communicate just fine using English and my mother tongue.</p>
+          <a href="#" class="w3-button w3-yellow w3-round-xxlarge"
+            ><i class="fa fa-home"></i> Cabugao, Gasan</a
+          >
+          <nuxt-link to="#" class="w3-button w3-yellow w3-round-xxlarge">
+            <i class="fa fa-baby"></i> November 30, 2001
+          </nuxt-link>
+          <button
+            class="w3-button w3-red"
+            style="border-radius: 100px; width: 38px; height: 38px; display: inline-flex; justify-content: center; align-items: center;">
+            <i class="fa fa-heart"></i>
+          </button>
         </div>
       </div>
-    </div>
+      <div class="three">
+        <div class="w3-content">
+          <div class="w3-padding">
+            <i class="fa fa-school"></i>
+            <p>
+              Currently studying Information Technology at Marinduque State
+              College.
+            </p>
+          </div>
+          <div class="w3-padding">
+            <i class="fa fa-briefcase"></i>
+            <p>
+              Currently working at
+              <a href="http://purplme.com" class="w3-text-purple"
+                >PurplMe.com</a
+              >
+              as a part-time Back End Developer.
+            </p>
+          </div>
+          <div class="w3-padding">
+            <i class="fa fa-code"></i>
+            <p>
+              Has advanced knowledge with Django, knows pure JS and some
+              frameworks.
+            </p>
+          </div>
+        </div>
+      </div>
 
-    <Contact
-      :show="contactShow"
-      key="contact"
-      @hide-contact-modal="contactShow = !contactShow"
-    />
-  </header>
+      <Contact
+        :show="contactShow"
+        key="contact"
+        @hide-contact-modal="contactShow = !contactShow"
+      />
+    </header>
+    <div class="root-second">
+      <div class="cont">
+        <div class="item">
+          <div>
+            <img src="/grad.jpg" />
+          </div>
+          <div class="text">
+            <span class="w3-large">
+              <h2>Achievements</h2>
+              I moved up from Junior High School at Marinduque Midwest College
+              with honors, and graduated from Senior High School with high
+              honors at Educational Systems Technological Institute. I was also
+              invited to attend at PyCon APAC 2019, and I got to learn a lot of
+              things about Python. Because of my part-time job, I'm able to pay
+              some of our bills, and to contribute with the development of our
+              new home.
+            </span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="text">
+            <span class="w3-large">
+              <h2>Interests</h2>
+              Besides from coding in Python and doing some web dev stuff, my
+              interest is also music because I love music, especially the songs
+              of Lady Gaga, Taylor Swift, Ariana Grande, Nicki Minaj, Doja Cat,
+              and more. I love singing, even if it doesn't love me back. I also
+              love watching series and movies on Netflix.
+            </span>
+          </div>
+          <div>
+            <img src="sing.jpg" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="cont">
+        <h2>
+          <i class="fa fa-heart w3-text-red"></i> Made with love by Denniel Luis
+          S. Sadian
+        </h2>
+      </div>
+    </footer>
+    <div class="floating">
+      <p>Not responsive.</p>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -87,6 +146,75 @@ export default {
 </script>
 
 <style scoped>
+.floating {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  background: rgb(206, 206, 206);
+  padding: 10px;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  border-radius: 8px;
+}
+
+.myroot {
+  height: 100%;
+}
+
+.root-second {
+  width: 100%;
+}
+
+.root-second .cont {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+footer {
+  width: 100%;
+  background: rgb(27, 27, 27);
+}
+
+footer .cont {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  color: white;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  text-align: center;
+}
+
+.root-second .cont .item {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.root-second .cont .item > div {
+  padding: 30px;
+}
+
+.root-second .cont .item > div > img {
+  width: 440px;
+  height: 440px;
+  object-fit: cover;
+}
+
+.cont .item .text {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 80px !important;
+  background-color: rgb(248, 253, 196);
+  font-family: 'Nunito';
+}
+
 header {
   height: 100%;
   display: grid;
@@ -103,7 +231,7 @@ header {
   overflow: hidden;
 }
 
-.name {
+.shadow {
   text-shadow: 3px 0px 7px rgba(81, 67, 21, 0.8),
     -3px 0px 7px rgba(81, 67, 21, 0.8), 0px 4px 7px rgba(81, 67, 21, 0.8);
 }
@@ -142,7 +270,6 @@ header {
 .texts > div p,
 .texts > div a {
   font-family: 'Nunito';
-  text-transform: capitalize;
 }
 
 .texts > div p:first-child {
@@ -164,6 +291,7 @@ header {
   padding: 16px 0px;
   display: flex;
   font-size: 16px;
+  border-bottom: 1px solid rgb(218, 218, 218);
 }
 
 .three > div {
