@@ -10,13 +10,13 @@
         <p>
           I love working with web technologies. Web development is my passion.
         </p>
-        <nuxt-link to="/portfolio/" class="w3-button w3-yellow w3-round">
+        <nuxt-link to="/portfolio/" class="w3-button w3-yellow w3-round-xxlarge">
           See My Works
         </nuxt-link>
-        <a href="/resume.pdf" class="w3-button w3-yellow w3-round">My Resume</a>
+        <a href="/resume.pdf" class="w3-button w3-yellow w3-round-xxlarge">My Resume</a>
         <button
           @click="contactShow = !contactShow"
-          class="w3-button w3-yellow w3-round"
+          class="w3-button w3-yellow w3-round-xxlarge"
         >
           Contact Me
         </button>
@@ -25,22 +25,20 @@
     <div class="three">
       <div class="w3-content">
         <div class="w3-padding">
-          <i class="fa fa-object-group"></i>
+          <i class="fa fa-code"></i>
           <p>
-            I design minimalist web applications while maintaining good user
-            experience.
+            I do web development with frameworks like Django and Spring Boot.
           </p>
         </div>
         <div class="w3-padding">
-          <i class="fa fa-keyboard"></i>
-          <p>
-            I am knowledgable of different web technologies for both front and
-            back.
-          </p>
+          <i class="fa fa-server"></i>
+          <p>I have some knowledge with Docker and Amazon Web Services.</p>
         </div>
         <div class="w3-padding">
-          <i class="fa fa-comments"></i>
-          <p>I can communicate just fine using English and my mother tongue.</p>
+          <i class="fa fa-heart"></i>
+          <p>
+            I love to learn new things, and learn from other great developers.
+          </p>
         </div>
       </div>
     </div>
@@ -63,7 +61,7 @@ export default {
   },
   head() {
     return {
-      title: 'Dein Sadian',
+      title: 'Denniel Sadian',
       meta: [
         {
           hid: 'description',
