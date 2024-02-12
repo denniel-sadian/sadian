@@ -5,7 +5,7 @@
   "author": "Denniel Luis Sadian",
   "private": true,
   "engines": {
-    "node": "14.x",
+    "node": "20.x",
     "npm": "6.x"
   },
   "scripts": {
