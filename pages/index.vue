@@ -1,42 +1,49 @@
 <template>
   <header>
-    <div class="photo w3-animate-bottom">
-      <img src="~/assets/images/long-me.png" alt="Me" />
+    <div class="photo">
+      <img src="~/assets/images/long-me-2.png" alt="Me" />
     </div>
-    <div class="texts w3-animate-left">
+    <div class="texts">
       <div>
-        <p class="name">My name is Denniel Luis S. Sadian</p>
-        <h1 class="lilac-text">I'm a Software Developer from Marinduque.</h1>
-        <p class="w3-margin-top w3-margin-bottom">
-          I love working with web technologies. Web development is my passion. I
-          adapt quickly to my environment.
+        <p class="name gold-text">My name is Denniel Sadian</p>
+        <h1>
+          I'm a Software Developer from Marinduque.
+        </h1>
+        <p class="w3-margin-top w3-margin-bottom w3-text-gray">
+          I specialize in web development. Lorem ipsum... yes.
+          console.log('what?')
         </p>
+        <a
+          href="https://www.linkedin.com/in/denniel-luis-sadian-266517168/"
+          target="_blank"
+          class="w3-button w3-round-xxlarge w3-large w3-black"
+          >Linkedin</a
+        >
         <a
           href="https://github.com/denniel-sadian"
           target="_blank"
-          class="w3-button lilac w3-round-xxlarge w3-large"
-          ><i class="fa fa-github"></i> GitHub</a
-        >
+          class="w3-button w3-round-xxlarge w3-large w3-black"
+          ><i class="fa fa-github"></i
+        ></a>
       </div>
     </div>
-    <div class="three">
+    <div class="three w3-white w3-border-top w3-border-black">
       <div class="w3-content">
         <div class="w3-padding">
-          <i class="fa fa-code dark-lilac-text"></i>
+          <i class="fa fa-code w3-text-black"></i>
           <p>
             I do web development with frameworks like Django, FastAPI, and
             Spring Boot.
           </p>
         </div>
         <div class="w3-padding">
-          <i class="fa fa-server dark-lilac-text"></i>
+          <i class="fa fa-server w3-text-black"></i>
           <p>
-            I have knowledge with Docker, Kubernetes, DevOps, and Amazon Web
-            Services.
+            I have knowledge with Docker, Kubernetes, and Amazon Web Services.
           </p>
         </div>
         <div class="w3-padding">
-          <i class="fa fa-heart dark-lilac-text"></i>
+          <i class="fa fa-heart w3-text-black"></i>
           <p>
             I love to learn new things, and learn from other great software
             developers.
@@ -95,7 +102,7 @@ header {
   grid-template-areas:
     'texts photo'
     'three three';
-  background: url('../assets/images/header-bg.jpg') no-repeat fixed;
+  background: url('../assets/images/header-bg-inverted.png') no-repeat fixed;
   background-position: bottom;
   width: 100%;
   background-size: cover;
@@ -117,9 +124,8 @@ header {
 }
 
 .name {
-  text-shadow: 3px 0px 7px rgba(81, 67, 21, 0.8),
-    -3px 0px 7px rgba(81, 67, 21, 0.8), 0px 4px 7px rgba(81, 67, 21, 0.8);
   text-transform: uppercase;
+  font-size: 25px !important;
 }
 
 .photo {
@@ -145,7 +151,7 @@ header {
   align-items: center;
   display: flex;
   justify-content: flex-end;
-  color: white;
+  color: black;
   width: 100%;
   max-width: 500px;
   margin-left: auto;
@@ -178,7 +184,6 @@ header {
 
 .three {
   grid-area: three;
-  background: white;
   padding: 16px 0px;
   display: flex;
   font-size: 16px;
@@ -217,6 +222,16 @@ header {
   margin-bottom: 4px;
 }
 
+.gold-text {
+  font-size: 48px;
+  font-weight: bold;
+  color: #ffd700; /* Gold color */
+  text-shadow: -1px -1px 1px #0000008e, 1px -1px 1px #0000008e,
+    -1px 1px 1px #0000008e, 1px 1px 1px #000, 0px 0px 10px #ffd700,
+    0px 0px 20px #ffd700, 0px 0px 30px #ffd700, 0px 0px 40px #ffd700,
+    0px 0px 50px #ffd700, 0px 0px 60px #ffd700, 0px 0px 70px #ffd700; /* Final shadow */
+}
+
 @media screen and (max-width: 450px) {
   /* Small phones */
 
@@ -227,7 +242,6 @@ header {
 
 @media screen and (max-width: 850px) {
   header {
-    background: url('../assets/images/small-header-bg.jpg') no-repeat fixed;
     background-position: bottom;
     background-size: cover;
     overflow: unset;
